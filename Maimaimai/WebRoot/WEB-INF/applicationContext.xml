@@ -34,12 +34,26 @@
 				</prop>
 			</props>
 		</property>
+		<property name="mappingResources">
+			<list>
+				<value>model/User.hbm.xml</value></list>
+		</property>
+
 	</bean>
+	
+	<bean id="userDao" class="dao.impl.UserDaoImpl">  
+	   <property name="sessionFactory">  
+	    <ref bean="sessionFactory" />  
+	   </property>  
+	</bean> 
+	
+	
 	
 	<bean id="transactionManager"
         class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
+    
 	
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
         <tx:attributes>
@@ -55,4 +69,4 @@
     </aop:config>      
 	
 
-</beans>
+ </beans>
