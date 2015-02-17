@@ -1,7 +1,10 @@
 package web.admin;
 
+import java.util.Map;
+
 import model.User;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import dao.UserDao;
@@ -100,11 +103,24 @@ public class UserManagerAction extends ActionSupport{
 			return "error";
 		}
 		User u = userDao.isValidUser(username, password);
+		ActionContext actionContext = ActionContext.getContext();
 		if(u != null){
+			actionContext = ActionContext.getContext();
+			Map session = actionContext.getSession();
+			session.put("Login", "OK");
 			return "success";
 		} else {
 			return "wrong";
 		}
 	}
+	
+	public String userlogout() throws Exception {
+		ActionContext actionContext = ActionContext.getContext();
+		Map session = actionContext.getSession();
+		session.put("Login", "");
+		return "logout";
+	}
+	
+	
 	
 }

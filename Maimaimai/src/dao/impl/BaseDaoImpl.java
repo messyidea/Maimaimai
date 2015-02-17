@@ -131,5 +131,6 @@ public class BaseDaoImpl implements BaseDao {
 		Object o = session.get(clazz, id);
 		return o;
 	}
+	
 
 }
