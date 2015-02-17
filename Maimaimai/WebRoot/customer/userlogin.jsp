@@ -22,7 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <img alt="140x140" src="../common/img/pic1.jpg" />
         </div>
         <div class="span6">
-          <form class="form-horizontal" action="login.action">
+          <form class="form-horizontal" action="userlogin.action">
 			<legend>µÇÂ½</legend>
             <div class="control-group">
                <label class="control-label" for="inputEmail">ÓÃ»§Ãû</label>
@@ -40,8 +40,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <div class="controls">
                  <label class="checkbox"><input type="checkbox" />Remember me</label> 
 				 <button type="submit" class="btn" value="login">µÇÂ½</button>
+				 <!--
 				 <span>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span>
-				 <button type="submit" class="btn">×¢²á</button>
+				 <button type="submit" class="btn" href="/Maimaimai/customer/userregister.jsp">×¢²á</button>
+				 --!>
               </div>
             </div>
           </form>

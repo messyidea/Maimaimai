@@ -20,8 +20,18 @@ public class UserManagerAction extends ActionSupport{
 	private String email; 
 	private String userdesc; 
 	private String grade; 
+	
+	private User user;
 
 	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	public UserDao getUserDao() {
 		return userDao;
 	}
@@ -31,7 +41,6 @@ public class UserManagerAction extends ActionSupport{
 	}
 
 	public void addUser() {
-		System.out.println("hehe");
 		User u = new User();
 		u.setUsername(username);
 		u.setPassword(password);
@@ -39,7 +48,17 @@ public class UserManagerAction extends ActionSupport{
 		u.setEmail(email);
 		u.setGrade("1");
 		u.setUserdesc("haha");
-		System.out.println("username == " + username);
+		userDao.saveUser(u);
+	}
+	
+	public void addSeller() {
+		User u = new User();
+		u.setUsername(username);
+		u.setPassword(password);
+		u.setSex(sex);
+		u.setEmail(email);
+		u.setGrade("2");
+		u.setUserdesc("haha");
 		userDao.saveUser(u);
 	}
 	
@@ -92,7 +111,7 @@ public class UserManagerAction extends ActionSupport{
 	}
 
 
-	public String register() throws Exception {
+	public String userregister() throws Exception {
 		System.out.println("hehe");
 		addUser();
 		return "success";
@@ -107,7 +126,9 @@ public class UserManagerAction extends ActionSupport{
 		if(u != null){
 			actionContext = ActionContext.getContext();
 			Map session = actionContext.getSession();
-			session.put("Login", "OK");
+			session.put("Login", u.getGrade());
+			session.put("username", username);
+			//session.put("type", u.getGrade());
 			return "success";
 		} else {
 			return "wrong";
@@ -121,6 +142,24 @@ public class UserManagerAction extends ActionSupport{
 		return "logout";
 	}
 	
+	public String sellerregister() throws Exception {
+		addSeller();
+		return "success";
+	}
+	
+	public String becomeSeller() throws Exception {
+		ActionContext actionContext = ActionContext.getContext();
+		Map session = actionContext.getSession();
+		String isOnline = (String)session.get("Login");
+		if(isOnline == null || isOnline.equals("")) return "not_login";
+		username = (String)session.get("username");
+		user = userDao.getUserByName(username);
+		if(user == null) return "not found";
+		user.setGrade("2");
+		userDao.update(user);
+		return "success";
+		
+	}
 	
 	
 }

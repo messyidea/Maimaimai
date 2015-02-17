@@ -2,17 +2,23 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<package name="default" extends="struts-default">
-		<action name="login" class="web.admin.UserManagerAction" method="userlogin">
+		<action name="userlogin" class="web.admin.UserManagerAction" method="userlogin">
               <result name="success">/index.jsp</result>        
               <result name="error">/err.jsp</result>
               <result name="wrong">/err.jsp</result>
         </action>   
-        <action name="userRegister" class="web.admin.UserManagerAction" method="register">
-              <result name="success">/succ.jsp</result>
+        <action name="userRegister" class="web.admin.UserManagerAction" method="userregister">
+              <result name="success">/index.jsp</result>
         </action>   
         <action name="userlogout" class="web.admin.UserManagerAction" method="userlogout">
               <result name="logout">/index.jsp</result>
-        </action>   
+        </action>
+        <action name="becomeSeller" class="web.admin.UserManagerAction" method="becomeSeller">
+              <result name="success">/index.jsp</result>
+              <result name="not found">/err.jsp</result>
+              <result name="not_login">/not_login.jsp</result>
+        </action>
+        
 	</package>
 
 </struts>    
