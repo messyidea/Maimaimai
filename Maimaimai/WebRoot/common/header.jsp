@@ -33,7 +33,7 @@
 			out.print(session.getAttribute("username"));
 			out.println("</a>");
 			out.println("<ul class=\"dropdown-menu\">");
-			out.println("<li><a href=\"#\">用户中心</a></li>");
+			out.println("<li><a href=\"/Maimaimai/customer/usercenter.jsp\">用户中心</a></li>");
 			out.println("<li><a href=\"#\">购物车</a></li>");
 			out.println("<li><a href=\"#\">搜藏夹</a></li>");
 			out.println("</ul></li>");
