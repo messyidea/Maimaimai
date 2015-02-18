@@ -172,6 +172,7 @@ public class UserManagerAction extends ActionSupport{
 			Map session = actionContext.getSession();
 			session.put("Login", u.getGrade());
 			session.put("username", username);
+			session.put("userdesc", u.getUserdesc());
 			//session.put("type", u.getGrade());
 			return "success";
 		} else {

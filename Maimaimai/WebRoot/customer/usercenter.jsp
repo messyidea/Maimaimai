@@ -18,27 +18,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="container-fluid">
   <div class="row-fluid">
     <div class="span2 accordion-group">
-      <ul class="nav nav-list">
+      <ul class="nav nav-list well">
         <li class="nav-header">
-          列表标题
+          卖家中心
         </li>
         <li class="active">
-          <a href="#">首页</a>
+          <a href="#">关于我</a>
         </li>
         <li>
-          <a href="#">库</a>
+          <a href="#">我的购物车</a>
         </li>
         <li>
-          <a href="#">应用</a>
+          <a href="#">修改资料</a>
         </li>
         <li class="nav-header">
-          功能列表
+          我的关注
         </li>
         <li>
-          <a href="#">资料</a>
+          <a href="#">我收藏的宝贝</a>
         </li>
         <li>
-          <a href="#">设置</a>
+          <a href="#">我收藏的店铺</a>
+        </li>
+        <li>
+          <a href="#">我关注的店铺</a>
         </li>
         <li class="divider">
         </li>
@@ -60,14 +63,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </p>
       </div>
     </div>
-    <div class="span3 accordion-group">
-      <img class="accordion-inner" alt="140x140" width="140" height="140" src="/Maimaimai/common/img/pic.jpg" class="img-circle" />
+    <div class="span3 accordion-group well">
+      <img class="accordion-group" alt="140x140" width="140" height="140" src="/Maimaimai/common/img/pic.jpg" class="img-circle" />
+      <div >
       <p>
-        <span class="label">用户名：</span>
+      	<br>
+        <span class="label">用户名：${username }</span>
       </p>
       <p>
-        <span class="label">个性签名：</span>
+        <span class="label">个性签名：${userdesc }</span>
       </p>
+      </div>
     </div>
   </div>
 </div>
