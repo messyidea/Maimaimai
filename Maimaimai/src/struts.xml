@@ -18,6 +18,9 @@
               <result name="not found">/err.jsp</result>
               <result name="not_login">/not_login.jsp</result>
         </action>
+        <action name="updateHeadimg" class="web.admin.UserManagerAction" method="updateHead">
+              <result name="success">/index.jsp</result>
+        </action>   
         
 	</package>
 

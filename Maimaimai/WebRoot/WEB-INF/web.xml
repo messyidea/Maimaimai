@@ -18,6 +18,10 @@
   	<filter-name>struts2</filter-name>
   	<url-pattern>*.action</url-pattern>
   </filter-mapping>
+  <filter-mapping>
+        <filter-name>struts2</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
   <listener>
   	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
@@ -25,4 +29,6 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>WEB-INF/applicationContext.xml</param-value>
 	</context-param>
+
+
  </web-app>
