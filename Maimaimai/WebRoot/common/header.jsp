@@ -68,8 +68,14 @@
 								 -->
 							</ul>
 							<ul class="nav pull-right">
+								<%
+									if(Login != null && Login.equals("3")) {
+										//out.println("<li><a href=\"/Maimaimai/admin/admincenter.jsp\">管理中心</a></li>");
+										out.println("<li><a href=\"showUser.action\">管理中心</a></li>");
+									}
+								 %>
 								<li class="dropdown"><a class="dropdown-toggle"
-									data-toggle="dropdown" href="#">卖家入口</a>
+									data-toggle="dropdown" href="#">卖家中心</a>
 									<ul class="dropdown-menu">
 									<%
 										//String Login = (String)session.getAttribute("Login");

@@ -21,6 +21,9 @@
         <action name="updateHeadimg" class="web.admin.UserManagerAction" method="updateHead">
               <result name="success">/index.jsp</result>
         </action>   
+        <action name="showUser" class="web.admin.UserManagerAction" method="showUsers">
+              <result name="list">/admin/admincenter.jsp</result>
+        </action>   
         
 	</package>
 

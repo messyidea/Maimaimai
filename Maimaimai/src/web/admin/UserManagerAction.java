@@ -6,10 +6,13 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
+
 
 import model.User;
 
@@ -18,6 +21,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import dao.UserDao;
 import dao.impl.UserDaoImpl;
+import dto.UserDto;
 
 public class UserManagerAction extends ActionSupport{
 
@@ -33,8 +37,33 @@ public class UserManagerAction extends ActionSupport{
 	private User user;
 	
 	private File headimg;
-
 	
+	private List<User> users = new ArrayList<User>();
+	
+	private List<UserDto> dtolist = new ArrayList<UserDto>();
+
+	public String showUsers() throws Exception {
+		UserDto dto = new UserDto();
+		//Ê¹ÓÃdto×ª»»list
+		dto.convert(userDao.getAllUser(User.class), dtolist);
+		return "list";
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+
+	public List<UserDto> getDtolist() {
+		return dtolist;
+	}
+
+	public void setDtolist(List<UserDto> dtolist) {
+		this.dtolist = dtolist;
+	}
 
 	public File getHeadimg() {
 		return headimg;
