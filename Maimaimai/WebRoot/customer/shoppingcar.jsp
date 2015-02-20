@@ -7,7 +7,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-    <title>用户中心</title>
+    <title>购物车</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
@@ -22,11 +22,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <li class="nav-header">
           卖家中心
         </li>
-        <li class="active">
-          <a href="#">订单管理</a>
-        </li>
         <li>
-          <a href="/Maimaimai/customer/shoppingcar.jsp">我的购物车</a>
+          <a href="/Maimaimai/customer/usercenter.jsp">订单管理</a>
+        </li>
+        <li class="active">
+          <a href="#">我的购物车</a>
         </li>
         <li>
           <a href="/Maimaimai/customer/changeinfo.jsp">修改资料</a>

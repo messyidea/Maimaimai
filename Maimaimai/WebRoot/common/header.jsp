@@ -34,8 +34,8 @@
 			out.println("</a>");
 			out.println("<ul class=\"dropdown-menu\">");
 			out.println("<li><a href=\"/Maimaimai/customer/usercenter.jsp\">用户中心</a></li>");
-			out.println("<li><a href=\"#\">购物车</a></li>");
-			out.println("<li><a href=\"#\">搜藏夹</a></li>");
+			out.println("<li><a href=\"/Maimaimai/customer/shoppingcar.jsp\">购物车</a></li>");
+			out.println("<li><a href=\"/Maimaimai/customer/favorite.jsp\">收藏夹</a></li>");
 			out.println("</ul></li>");
 			out.println("<li><a href=\"userlogout.action\">登出</a></li>");
 		
@@ -51,8 +51,8 @@
 			//response.setHeader("Refresh","5;URL=login.jsp");	
 		}
                      			%>
-								<li><a href="#">购物车</a></li>
-								<li><a href="#">收藏夹</a></li>
+								<li><a href="/Maimaimai/customer/shoppingcar.jsp">购物车</a></li>
+								<li><a href="/Maimaimai/customer/favorite.jsp">收藏夹</a></li>
 								<!-- 
 								<li class="dropdown"><a class="dropdown-toggle"
 									data-toggle="dropdown" href="#">下拉菜单</a>
@@ -79,8 +79,8 @@
 									<ul class="dropdown-menu">
 									<%
 										//String Login = (String)session.getAttribute("Login");
-										if(Login != null && Login.equals("2")) {
-											out.println("<li><a href=\"/Maimaimai/customer/sellerlogin.jsp\">卖家入口</a></li>");
+										if(Login != null && (Login.equals("2") || Login.equals("3"))) {
+											out.println("<li><a href=\"/Maimaimai/seller/sellercenter.jsp\">卖家入口</a></li>");
 										} else {
 											out.println("<li><a href=\"/Maimaimai/customer/becomeseller.jsp\">成为卖家</a></li>");
 										}
