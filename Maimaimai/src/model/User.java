@@ -8,8 +8,26 @@ public class User implements java.io.Serializable {
 	private String email; 
 	private String userdesc; 
 	private String grade; 
+	private String haveimg;
+	private String shopname;
 	
 	
+	public String getHaveimg() {
+		return haveimg;
+	}
+
+	public void setHaveimg(String haveimg) {
+		this.haveimg = haveimg;
+	}
+
+	public String getShopname() {
+		return shopname;
+	}
+
+	public void setShopname(String shopname) {
+		this.shopname = shopname;
+	}
+
 	/** default constructor */
 	public User() {
 	}

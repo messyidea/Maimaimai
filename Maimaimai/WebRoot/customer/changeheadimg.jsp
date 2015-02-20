@@ -3,11 +3,11 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@ taglib uri ="/struts-tags" prefix ="s" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-    <title>收藏的物品</title>
+    <title>修改信息</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
@@ -31,14 +31,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <li>
           <a href="/Maimaimai/customer/changeinfo.jsp">修改资料</a>
         </li>
-        <li>
-          <a href="/Maimaimai/customer/changeheadimg.jsp">修改头像</a>
+        <li   class="active">
+          <a href="#">修改头像</a>
         </li>
         <li class="nav-header">
           我的关注
         </li>
-        <li class="active">
-          <a href="#">我收藏的宝贝</a>
+        <li>
+          <a href="/Maimaimai/customer/favorite.jsp">我收藏的宝贝</a>
         </li>
         <li>
           <a href="/Maimaimai/customer/favoriteshop.jsp">我收藏的店铺</a>
@@ -53,13 +53,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="span7">
       <div class="hero-unit">
         <h1>
-          Hello, world!
+          修改头像
         </h1>
         <p>
-          这是一个可视化布局模板, 你可以点击模板里的文字进行修改, 也可以通过点击弹出的编辑框进行富文本修改. 拖动区块能实现排序.
+        <legend></legend>
+          	<br>
         </p>
         <p>
-          <a class="btn btn-primary btn-large" href="#">参看更多 ?</a>
+          	<center>
+			<font color="red"><s:fielderror/></font>
+			<s:form  method="post" action="updateHeadimg.action" enctype="multipart/form-data">
+			<s:file name="headimg" id="headimg" label="文件1"></s:file>
+			<s:submit label="上传"/>
+			</s:form> 
+			</center>
         </p>
       </div>
     </div>
@@ -71,8 +78,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       	} else {
       		String local = "/Maimaimai/headimg/" + (String)session.getAttribute("username") + ".jpg";
       		out.print(local);
-      	}
-       %>" class="img-circle" />
+      	} 
+      %>" class="img-circle" />
       <div >
       <p>
       	<br>

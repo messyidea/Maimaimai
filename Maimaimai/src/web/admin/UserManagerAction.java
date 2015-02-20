@@ -33,6 +33,8 @@ public class UserManagerAction extends ActionSupport{
 	private String email; 
 	private String userdesc; 
 	private String grade; 
+	private String shopname;
+	private String haveimg;
 	
 	private User user;
 	
@@ -41,6 +43,23 @@ public class UserManagerAction extends ActionSupport{
 	private List<User> users = new ArrayList<User>();
 	
 	private List<UserDto> dtolist = new ArrayList<UserDto>();
+
+	
+	public String getShopname() {
+		return shopname;
+	}
+
+	public void setShopname(String shopname) {
+		this.shopname = shopname;
+	}
+
+	public String getHaveimg() {
+		return haveimg;
+	}
+
+	public void setHaveimg(String haveimg) {
+		this.haveimg = haveimg;
+	}
 
 	public String showUsers() throws Exception {
 		UserDto dto = new UserDto();
@@ -93,6 +112,16 @@ public class UserManagerAction extends ActionSupport{
 		if(headimg != null) {
 			upload();
 		}
+		ActionContext actionContext = ActionContext.getContext();
+		Map session = actionContext.getSession();
+		String isOnline = (String)session.get("Login");
+		if(isOnline == null || isOnline.equals("")) return "not_login";
+		username = (String)session.get("username");
+		user = userDao.getUserByName(username);
+		if(user == null) return "not found";
+		user.setHaveimg("1");
+		session.put("haveimg", "1");
+		userDao.update(user);
 		return "success";
 	}
 	
@@ -121,19 +150,21 @@ public class UserManagerAction extends ActionSupport{
 		u.setEmail(email);
 		u.setGrade("1");
 		u.setUserdesc("haha");
+		u.setHaveimg("0");
 		userDao.saveUser(u);
 	}
 	
-	public void addSeller() {
+	/*public void addSeller() {
 		User u = new User();
 		u.setUsername(username);
 		u.setPassword(password);
 		u.setSex(sex);
 		u.setEmail(email);
 		u.setGrade("2");
+		u.setHaveimg("0");
 		u.setUserdesc("haha");
 		userDao.saveUser(u);
-	}
+	}*/
 	
 	public String getUsername() {
 		return username;
@@ -202,6 +233,8 @@ public class UserManagerAction extends ActionSupport{
 			session.put("Login", u.getGrade());
 			session.put("username", username);
 			session.put("userdesc", u.getUserdesc());
+			session.put("haveimg", u.getHaveimg());
+			session.put("shopname", u.getShopname());
 			//session.put("type", u.getGrade());
 			return "success";
 		} else {
@@ -216,10 +249,10 @@ public class UserManagerAction extends ActionSupport{
 		return "logout";
 	}
 	
-	public String sellerregister() throws Exception {
+	/*public String sellerregister() throws Exception {
 		addSeller();
 		return "success";
-	}
+	}*/
 	
 	public String becomeSeller() throws Exception {
 		ActionContext actionContext = ActionContext.getContext();
@@ -230,6 +263,10 @@ public class UserManagerAction extends ActionSupport{
 		user = userDao.getUserByName(username);
 		if(user == null) return "not found";
 		user.setGrade("2");
+		user.setShopname(shopname);
+		//System.out.println("shopname == " + shopname);
+		session.put("shopname", shopname);
+		session.put("Login", "2");
 		userDao.update(user);
 		return "success";
 		

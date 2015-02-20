@@ -25,5 +25,11 @@
         <property name="userdesc" type="java.lang.String">
             <column name="userdesc" length="20" />
         </property>
+        <property name="shopname" type="java.lang.String">
+            <column name="shopname" length="20" />
+        </property>
+        <property name="haveimg" type="java.lang.String">
+            <column name="haveimg" length="1" />
+        </property>
     </class>
 </hibernate-mapping>

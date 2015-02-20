@@ -31,6 +31,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <li  class="active">
           <a href="#">修改资料</a>
         </li>
+        <li>
+          <a href="/Maimaimai/customer/changeheadimg.jsp">修改头像</a>
+        </li>
         <li class="nav-header">
           我的关注
         </li>
@@ -61,14 +64,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </div>
     </div>
     <div class="span3 accordion-group well">
-      <img class="accordion-group" alt="140x140" width="140" height="140" src="/Maimaimai/common/img/pic.jpg" class="img-circle" />
+      <img class="accordion-group" alt="140x140" width="140" height="140" src="<%
+      
+      	String haveimg = (String)session.getAttribute("haveimg");
+      	if(haveimg.equals("0")){
+      		out.print("/Maimaimai/common/img/pic.jpg");
+      	} else {
+      		String local = "/Maimaimai/headimg/" + (String)session.getAttribute("username") + ".jpg";
+      		out.print(local);
+      	}
+      	
+      
+       %>" class="img-circle" />
       <div >
       <p>
       	<br>
         <span class="label">用户名：${username }</span>
       </p>
       <p>
-        <span class="label">个性签名：${userdesc }</span>
+        <span class="label">个性签名：${haveimg }</span>
       </p>
       </div>
     </div>

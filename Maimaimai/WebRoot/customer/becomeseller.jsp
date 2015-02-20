@@ -25,6 +25,9 @@
 					<fieldset>
 						<legend>你真的想要变成卖家？</legend>
 
+						<div class="controls">
+						      <input type="text" id="shopname" name="shopname">
+						</div>
 						<p>
 							<button class="btn" type="submit">提交</button>
 						</p>

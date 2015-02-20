@@ -48,7 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					src="/Maimaimai/common/img/pic.jpg" class="img-circle" />
 				<div>
 					<p>
-						<br> <span class="label">µêÆÌÃû£º${username }</span>
+						<br> <span class="label">µêÆÌÃû£º${shopname }</span>
 					</p>
 					<p>
 						<span class="label">µêÆÌÃèÊö£º${userdesc }</span>
