@@ -52,18 +52,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     <div class="span7">
       <div class="hero-unit">
-        <h1>
-          修改头像
-        </h1>
-        <p>
-        <legend></legend>
+        <legend>修改头像</legend>
           	<br>
         </p>
         <p>
           	<center>
 			<font color="red"><s:fielderror/></font>
 			<s:form  method="post" action="updateHeadimg.action" enctype="multipart/form-data">
-			<s:file name="headimg" id="headimg" label="文件1"></s:file>
+			<s:file name="headimg" id="headimg" label="头像"></s:file>
 			<s:submit label="上传"/>
 			</s:form> 
 			</center>
@@ -83,10 +79,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <div >
       <p>
       	<br>
-        <span class="label">用户名：${username }</span>
+        <span class="label">用户名：<br>${username }</span>
       </p>
       <p>
-        <span class="label">个性签名：${userdesc }</span>
+        <span class="label">个性签名：<br>${userdesc }</span>
       </p>
       </div>
     </div>

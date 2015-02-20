@@ -44,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <a href="/Maimaimai/customer/favoriteshop.jsp">我收藏的店铺</a>
         </li>
         <li class="divider">
-        </li>
+        <br></li>
         <li>
           <a href="#">帮助</a>
         </li>
@@ -52,15 +52,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     <div class="span7">
       <div class="hero-unit">
-        <h1>
-          Hello, world!
-        </h1>
-        <p>
-          这是一个可视化布局模板, 你可以点击模板里的文字进行修改, 也可以通过点击弹出的编辑框进行富文本修改. 拖动区块能实现排序.
-        </p>
-        <p>
-          <a class="btn btn-primary btn-large" href="#">参看更多 ?</a>
-        </p>
+      	<form class="form-inline" action="changeUserdesc.action">
+					<fieldset>
+						<legend>修改用户信息</legend>
+						<label>用户签名</label>
+						<p>
+							<!-- <input type="text" name="userdesc"></input> -->
+							<textarea rows="3" name="userdesc"></textarea>
+						</p>
+						<p>
+							<button class="btn" type="submit">确定</button>
+						</p>
+					</fieldset>
+				</form>
       </div>
     </div>
     <div class="span3 accordion-group well">
@@ -79,10 +83,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <div >
       <p>
       	<br>
-        <span class="label">用户名：${username }</span>
+        <span class="label">用户名：<br>${username }</span>
       </p>
       <p>
-        <span class="label">个性签名：${haveimg }</span>
+        <span class="label">个性签名：<br>${userdesc }</span>
       </p>
       </div>
     </div>

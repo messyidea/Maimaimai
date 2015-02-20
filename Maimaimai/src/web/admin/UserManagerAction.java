@@ -272,5 +272,20 @@ public class UserManagerAction extends ActionSupport{
 		
 	}
 	
+	public String changeUserdesc() throws Exception {
+		ActionContext actionContext = ActionContext.getContext();
+		Map session = actionContext.getSession();
+		String isOnline = (String)session.get("Login");
+		if(isOnline == null || isOnline.equals("")) return "not_login";
+		username = (String)session.get("username");
+		user = userDao.getUserByName(username);
+		if(user == null) return "not found";
+		user.setUserdesc(userdesc);
+		System.out.println(userdesc);
+		session.put("userdesc", userdesc);
+		userDao.update(user);
+		return "success";
+	}
+	
 	
 }

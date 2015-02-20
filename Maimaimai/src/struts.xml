@@ -19,11 +19,14 @@
               <result name="not_login">/not_login.jsp</result>
         </action>
         <action name="updateHeadimg" class="web.admin.UserManagerAction" method="updateHead">
-              <result name="success">/index.jsp</result>
+              <result name="success">/customer/changeheadimg.jsp</result>
         </action>   
         <action name="showUser" class="web.admin.UserManagerAction" method="showUsers">
               <result name="list">/admin/admincenter.jsp</result>
         </action>   
+        <action name="changeUserdesc" class="web.admin.UserManagerAction" method="changeUserdesc">
+              <result name="success">/customer/changeinfo.jsp</result>
+        </action> 
         
 	</package>
 

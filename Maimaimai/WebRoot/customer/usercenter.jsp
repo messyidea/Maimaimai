@@ -76,10 +76,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <div >
       <p>
       	<br>
-        <span class="label">用户名：${username }</span>
+        <span class="label">用户名：<br>${username }</span>
       </p>
       <p>
-        <span class="label">个性签名：${userdesc }</span>
+        <span class="label">个性签名：<br>${userdesc }</span>
       </p>
       </div>
     </div>
