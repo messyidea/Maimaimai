@@ -21,29 +21,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="span2 accordion-group">
 				<ul class="nav nav-list well">
 					<li class="nav-header">管理中心</li>
-					<li class="active"><a href="#">用户管理</a></li>
-					<li><a href="/Maimaimai/admin/shopmanagement.jsp">店铺管理</a></li>
+					<li ><a href="showUser.action">用户管理</a></li>
+					<li class="active"><a href="#">店铺管理</a></li>
 					<li><a href="/Maimaimai/admin/addcategory.jsp">类别管理</a></li>
+
 					<li><a href="#">帮助</a></li>
 				</ul>
 			</div>
 			<div class="span7">
-			<table width="80%" border="1" align="center" class="table table-bordered">
-				<s:iterator value="dtolist">
-					<tr align="center">
-						<td><s:property value="username" /></td>
-						<td><s:property value="grade" /></td>
-						<!-- 
-						<td><a
-							href="<s:url action="Useredit" ><s:param name="username" value="username"/></s:url>">
-								编辑 </a></td>
-						<td><a
-							href="<s:url action="Userdel" ><s:param name="username" value="username"/></s:url>">
-								删除 </a></td>
-						 -->
-					</tr>
-				</s:iterator>
-		</table>
+			
 				<!-- 
       <div class="hero-unit">
         <h1>
