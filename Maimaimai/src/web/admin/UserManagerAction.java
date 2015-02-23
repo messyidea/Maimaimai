@@ -63,6 +63,7 @@ public class UserManagerAction extends ActionSupport{
 
 	public String showUsers() throws Exception {
 		UserDto dto = new UserDto();
+		users = userDao.getAllUser(User.class);
 		//Ê¹ÓÃdto×ª»»list
 		dto.convert(userDao.getAllUser(User.class), dtolist);
 		return "list";

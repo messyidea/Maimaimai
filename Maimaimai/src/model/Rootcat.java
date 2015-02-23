@@ -1,11 +1,11 @@
 package model;
 
 public class Rootcat implements java.io.Serializable{
-	private Integer id;
+	public Integer id;
 	
-	private String name;
+	public String name;
 	
-	private Integer count;
+	public Integer count;
 	
 	public Rootcat(){
 		

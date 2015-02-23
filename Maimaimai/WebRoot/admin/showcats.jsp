@@ -29,8 +29,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</ul>
 			</div>
 			<div class="span7">
-				<s:iterator value="rootcatlist">
-					<s:property value="id"/>
+				<s:iterator value="rootcatlist" var="l1" status="sta">
+					<s:property value="#l1.name" /> <br>
+					<legend></legend>
+					<s:iterator value="soncatlist[#sta.index]" var="l2">
+						<s:iterator>
+							<s:property value="#l2.name" escape="false"/> &nbsp&nbsp&nbsp&nbsp&nbsp
+						</s:iterator>
+						<br>
+					</s:iterator>
 				</s:iterator>
 					
 			

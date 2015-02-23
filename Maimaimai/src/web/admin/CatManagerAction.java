@@ -1,5 +1,6 @@
 package web.admin;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import model.Rootcat;
@@ -26,13 +27,24 @@ public class CatManagerAction extends ActionSupport{
 	
 	public String list(){
 		rootcatlist = rootcatdao.getAll(Rootcat.class);
-		/*for(Rootcat r:rootcatlist) {
-			System.out.println("hehe2");
+		soncatlist = new ArrayList<List<Soncat> >();
+		for(Rootcat r:rootcatlist) {
 			String id = Integer.toString(r.getId());
-			List<Soncat> sc = null;
-			sc = soncatdao.getlistById(id);
+			System.out.println(id);
+			System.out.println(r.getName());
+			//List<Soncat> sc = soncatdao.getlistById(id);
+			List<Soncat> sc = soncatdao.getAll(Soncat.class);
+			System.out.println(sc.size());
 			soncatlist.add(sc);
+		}
+		/*for(List<Soncat> r:soncatlist) {
+			for(Soncat rs:r) {
+				System.out.println(rs.getName());
+				System.out.println(rs.getId());
+				System.out.println(rs.getFa());
+			}
 		}*/
+		System.out.println("hehehe");
 		return "list";
 	}
 	
