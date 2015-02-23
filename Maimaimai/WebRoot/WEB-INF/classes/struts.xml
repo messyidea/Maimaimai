@@ -30,6 +30,9 @@
         <action name="Catlist" class="web.admin.CatManagerAction" method="list">
               <result name="list">/admin/showcats.jsp</result>
         </action>
+        <action name="Cataddson" class="web.admin.CatManagerAction" method="addson">
+              <result name="add">/admin/addsoncat.jsp</result>
+        </action>
         
 	</package>
 

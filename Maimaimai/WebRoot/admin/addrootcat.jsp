@@ -29,25 +29,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</ul>
 			</div>
 			<div class="span7">
-				<s:iterator value="rootcatlist" var="l1" status="sta">
-					<h3><s:property value="#l1.name" /> <h3>
-					
-					<legend></legend>
-					<s:iterator value="soncatlist[#sta.index]" var="l2">
-						<s:iterator>
-							<s:property value="#l2.name" />
-						</s:iterator>
-					</s:iterator>
-					<a href="<s:url action="Cataddson" ><s:param name="id" value="#l1.id"/></s:url>">
-						增加子分类
-					</a>
-					
-				</s:iterator>
-				<br>
-				<a href="/Maimaimai/admin/addrootcat.jsp">
-						增加主分类
-				</a>
-					
 			
 				<!-- 
       <div class="hero-unit">

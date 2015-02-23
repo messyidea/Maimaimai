@@ -2,10 +2,16 @@ package web.admin;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
 
 import model.Rootcat;
 import model.Soncat;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import dao.RootcatDao;
@@ -46,6 +52,13 @@ public class CatManagerAction extends ActionSupport{
 		}*/
 		System.out.println("hehehe");
 		return "list";
+	}
+	
+	public String addson() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		String idd = request.getParameter("id");
+		System.out.println("XIXI " + idd);
+		return "add";
 	}
 	
 	
