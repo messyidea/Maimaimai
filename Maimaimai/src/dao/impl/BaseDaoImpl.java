@@ -44,6 +44,7 @@ public class BaseDaoImpl implements BaseDao {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.openSession();
 		session.saveOrUpdate(o);
+		session.close();
 	}
 
 	@Override
@@ -57,6 +58,7 @@ public class BaseDaoImpl implements BaseDao {
 		}
 		try {
 			session.flush();
+			session.close();
 		} catch (HibernateException ex1) {
 			throw ex1;
 		}
@@ -72,7 +74,7 @@ public class BaseDaoImpl implements BaseDao {
 		} catch (HibernateException ex2) {
 			throw ex2;
 		}finally{
-			//
+			session.close();
 		}
 	}
 
@@ -121,6 +123,7 @@ public class BaseDaoImpl implements BaseDao {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.openSession();
 		List alist = session.createQuery("from " + clazz.getName()).list();
+		session.close();
 		return alist;
 	}
 
@@ -129,6 +132,7 @@ public class BaseDaoImpl implements BaseDao {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.openSession();
 		Object o = session.get(clazz, id);
+		session.close();
 		return o;
 	}
 	
