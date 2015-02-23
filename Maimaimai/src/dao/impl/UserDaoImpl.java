@@ -35,7 +35,7 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 		session.close();
 		//this.getHibernateTemplate().saveOrUpdate(user);
 		System.out.println("success");*/
-		System.out.println(user.getPassword());
+		//System.out.println(user.getPassword());
 		super.insert(user);
 	}
 

@@ -26,7 +26,7 @@ public class BaseDaoImpl implements BaseDao {
 	public Object insert(Object po) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.openSession();
-		try {		
+		try {
 			session.save(po);
 			session.flush();
 			System.out.println("success");

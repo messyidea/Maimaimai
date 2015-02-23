@@ -38,7 +38,10 @@
 		</property>
 		<property name="mappingResources">
 			<list>
-				<value>model/User.hbm.xml</value></list>
+				<value>model/User.hbm.xml</value>
+				<value>model/Rootcat.hbm.xml</value>
+				<value>model/Soncat.hbm.xml</value>
+			</list>
 		</property>
 		
 
@@ -47,6 +50,18 @@
 	<bean id="userDao" class="dao.impl.UserDaoImpl">  
 	   <property name="sessionFactory">  
 	    <ref bean="sessionFactory" />  
+	   </property>  
+	</bean> 
+	
+	<bean id="rootcatdao" class="dao.impl.RootcatDaoImpl">  
+	   <property name="sessionFactory">  
+	    <ref bean="sessionFactory" />  
+	   </property>  
+	</bean> 
+	
+	<bean id="soncatdao" class="dao.impl.SoncatDaoImpl">  
+	   <property name="sessionFactory">
+	    <ref bean="sessionFactory" />
 	   </property>  
 	</bean> 
 	

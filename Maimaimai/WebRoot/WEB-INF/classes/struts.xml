@@ -27,6 +27,9 @@
         <action name="changeUserdesc" class="web.admin.UserManagerAction" method="changeUserdesc">
               <result name="success">/customer/changeinfo.jsp</result>
         </action> 
+        <action name="Catlist" class="web.admin.CatManagerAction" method="list">
+              <result name="list">/admin/showcats.jsp</result>
+        </action>
         
 	</package>
 
