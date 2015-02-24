@@ -7,7 +7,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Bootstrap 101 Template</title>
+<title>目录管理</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Bootstrap -->
 <link rel="stylesheet"
@@ -22,8 +22,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<ul class="nav nav-list well">
 					<li class="nav-header">管理中心</li>
 					<li ><a href="showUser.action">用户管理</a></li>
-					<li><a href="/Maimaimai/admin/shopmanagement.jsp">店铺管理</a></li>
-					<li class="active"><a href="#">类别管理</a></li>
+					<li><a href="Shoplist.action">店铺管理</a></li>
+					<li class="active"><a href="Catlist.action">类别管理</a></li>
 
 					<li><a href="#">帮助</a></li>
 				</ul>

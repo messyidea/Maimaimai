@@ -70,7 +70,7 @@
 	   <property name="sessionFactory">
 	    <ref bean="sessionFactory" />
 	   </property>  
-	</bean> 
+	</bean>  
 	
 	<bean id="itemdao" class="dao.impl.ItemDaoImpl">  
 	   <property name="sessionFactory">

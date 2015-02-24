@@ -14,12 +14,15 @@ import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
 
+import model.Shop;
 import model.User;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
+import dao.ShopDao;
 import dao.UserDao;
+import dao.impl.ShopDaoImpl;
 import dao.impl.UserDaoImpl;
 import dto.UserDto;
 
@@ -35,6 +38,7 @@ public class UserManagerAction extends ActionSupport{
 	private String grade; 
 	private String shopname;
 	private String haveimg;
+	private ShopDao shopdao = new ShopDaoImpl();
 	
 	private User user;
 	
@@ -269,6 +273,12 @@ public class UserManagerAction extends ActionSupport{
 		session.put("shopname", shopname);
 		session.put("Login", "2");
 		userDao.update(user);
+		Shop shop = new Shop();
+		shop.setShopname(shopname);
+		shop.setGrade(5);
+		shop.setShopdesc("hahaha");
+		shop.setUsername(username);
+		shopdao.saveShop(shop);
 		return "success";
 		
 	}
@@ -286,6 +296,14 @@ public class UserManagerAction extends ActionSupport{
 		session.put("userdesc", userdesc);
 		userDao.update(user);
 		return "success";
+	}
+
+	public ShopDao getShopdao() {
+		return shopdao;
+	}
+
+	public void setShopdao(ShopDao shopdao) {
+		this.shopdao = shopdao;
 	}
 	
 	

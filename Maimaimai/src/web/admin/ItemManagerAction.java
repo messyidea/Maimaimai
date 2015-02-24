@@ -1,5 +1,7 @@
 package web.admin;
 
-public class ItemManagerAction {
+import com.opensymphony.xwork2.ActionSupport;
+
+public class ItemManagerAction extends ActionSupport{
 
 }

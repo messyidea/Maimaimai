@@ -39,6 +39,9 @@
         <action name="Cataddroot" class="web.admin.CatManagerAction" method="addroot">
               <result name="add" type="redirect">/admin/Catlist.action</result>
         </action>
+        <action name="Shoplist" class="web.admin.ShopManagerAction" method="list">
+              <result name="list">/admin/showshops.jsp</result>
+        </action>
 	</package>
 
 </struts>    

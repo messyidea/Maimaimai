@@ -7,7 +7,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>管理中心</title>
+<title>店铺管理</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Bootstrap -->
 <link rel="stylesheet"
@@ -21,29 +21,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="span2 accordion-group">
 				<ul class="nav nav-list well">
 					<li class="nav-header">管理中心</li>
-					<li class="active"><a href="#">用户管理</a></li>
-					<li><a href="Shoplist.action">店铺管理</a></li>
-					<li><a href="Catlist.action">类别管理</a></li>
+					<li ><a href="showUser.action">用户管理</a></li>
+					<li class="active"><a href="Shoplist.action">店铺管理</a></li>
+					<li ><a href="Catlist.action">类别管理</a></li>
+
 					<li><a href="#">帮助</a></li>
 				</ul>
 			</div>
 			<div class="span7">
-			<table width="80%" border="1" align="center" class="table table-bordered">
-				<s:iterator value="dtolist">
-					<tr align="center">
-						<td><s:property value="username" /></td>
-						<td><s:property value="grade" /></td>
-						<!-- 
-						<td><a
-							href="<s:url action="Useredit" ><s:param name="username" value="username"/></s:url>">
-								编辑 </a></td>
-						<td><a
-							href="<s:url action="Userdel" ><s:param name="username" value="username"/></s:url>">
-								删除 </a></td>
-						 -->
-					</tr>
+				<s:iterator value="shoplist" var="l1" status="sta">
+					店铺名：<h5><s:property value="#l1.shopname" /> <h5>
+					店铺主人：<h5><s:property value="#l1.username" /> <h5>
+					店铺介绍：<h5><s:property value="#l1.shopdesc" /> <h5>
+					店铺等级：<h5><s:property value="#l1.grade" /> <h5>
+					<legend></legend>
 				</s:iterator>
-		</table>
+				<br>
+					
+			
 				<!-- 
       <div class="hero-unit">
         <h1>
