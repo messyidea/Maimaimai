@@ -6,19 +6,18 @@
 -->
 <hibernate-mapping>
     <class name="model.Shop" table="shop" catalog="maimaimai">
-        <composite-id name="id" class="model.ShopId">
-            <key-property name="shopname" type="java.lang.String">
-                <column name="shopname" length="20" />
-            </key-property>
-            <key-property name="shopdesc" type="java.lang.String">
-                <column name="shopdesc" length="40" />
-            </key-property>
-            <key-property name="username" type="java.lang.String">
-                <column name="username" length="20" />
-            </key-property>
-            <key-property name="grade" type="java.lang.Integer">
-                <column name="grade" />
-            </key-property>
-        </composite-id>
+        <id name="shopname" type="java.lang.String">
+            <column name="shopname" length="20" />
+            <generator class="assigned" />
+        </id>
+        <property name="shopdesc" type="java.lang.String">
+            <column name="shopdesc" length="40" />
+        </property>
+        <property name="username" type="java.lang.String">
+            <column name="username" length="20" />
+        </property>
+        <property name="grade" type="java.lang.Integer">
+            <column name="grade" />
+        </property>
     </class>
 </hibernate-mapping>

@@ -66,6 +66,18 @@
 	   </property>  
 	</bean> 
 	
+	<bean id="shopdao" class="dao.impl.ShopDaoImpl">  
+	   <property name="sessionFactory">
+	    <ref bean="sessionFactory" />
+	   </property>  
+	</bean> 
+	
+	<bean id="itemdao" class="dao.impl.ItemDaoImpl">  
+	   <property name="sessionFactory">
+	    <ref bean="sessionFactory" />
+	   </property>  
+	</bean> 
+	
 	
 	
 	<bean id="transactionManager"

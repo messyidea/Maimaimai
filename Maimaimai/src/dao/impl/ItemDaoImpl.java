@@ -1,0 +1,49 @@
+package dao.impl;
+
+import java.util.List;
+
+import model.Item;
+import dao.ItemDao;
+
+
+public class ItemDaoImpl  extends BaseDaoImpl implements ItemDao{
+
+	@Override
+	public void saveItem(Item item) {
+		// TODO Auto-generated method stub
+		super.insert(item);
+	}
+
+	@Override
+	public List<Item> getAllShop(Class clazz) {
+		// TODO Auto-generated method stub
+		return super.getObjects(Item.class);
+	}
+
+	@Override
+	public List<Item> findByName(String name) {
+		// TODO Auto-generated method stub
+		List<Item> list = super.search("from Item where itemname like '%"+name+"%'");
+		return list;
+	}
+
+	@Override
+	public void deleteItemByName(String name) {
+		// TODO Auto-generated method stub
+		super.delete(Item.class, name);
+	}
+
+	@Override
+	public void update(Item item) {
+		// TODO Auto-generated method stub
+		super.renew(item);
+	}
+
+	@Override
+	public Item getItemByName(String name) {
+		// TODO Auto-generated method stub
+		Item item = (Item)super.getObject(Item.class, name);
+		return item;
+	}
+
+}

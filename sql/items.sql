@@ -1,5 +1,5 @@
 create table `item`(
-`id` int(10),
+`id` int(10) primary key,
 `itemname` varchar(20),
 `price` float(9,7),
 `num` int(10),
