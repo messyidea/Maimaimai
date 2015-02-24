@@ -28,20 +28,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</ul>
 			</div>
 			<div class="span7">
-				
-				 
-      <div class="hero-unit">
-        <h1>
-          Hello, world!
-        </h1>
-        <p>
-          这是一个可视化布局模板, 你可以点击模板里的文字进行修改, 也可以通过点击弹出的编辑框进行富文本修改. 拖动区块能实现排序.
-        </p>
-        <p>
-          <a class="btn btn-primary btn-large" href="#">参看更多 ?</a>
-        </p>
-      </div>
-       
+				<form class="form-inline" action="Itemadd.action">
+					<fieldset>
+						<label>名称</label>
+						<p>
+							<input type="text" name="itemname" />
+						</p>
+						<label>数量</label>
+						<p>
+							<input type="text" name="itemname" />
+						</p>
+						<label>其它信息</label>
+						<p>
+							<input type="text" name="itemname" />
+						</p>	
+						<p>
+							<button class="btn" type="submit">提交</button>
+						</p>
+					</fieldset>
+				</form>			 
 			</div>
 			<div class="span3 accordion-group well">
 				<img class="accordion-group" alt="140x140" width="140" height="140"

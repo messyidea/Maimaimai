@@ -41,7 +41,8 @@
 				<value>model/User.hbm.xml</value>
 				<value>model/Rootcat.hbm.xml</value>
 				<value>model/Soncat.hbm.xml</value>
-			</list>
+				<value>model/Shop.hbm.xml</value>
+				<value>model/Item.hbm.xml</value></list>
 		</property>
 		
 
