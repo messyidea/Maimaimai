@@ -33,7 +33,12 @@
         <action name="Cataddson" class="web.admin.CatManagerAction" method="addson">
               <result name="add">/admin/addsoncat.jsp</result>
         </action>
-        
+        <action name="Cataddson2" class="web.admin.CatManagerAction" method="addson2">
+              <result name="add" type="redirect">/admin/Catlist.action</result>
+        </action>
+        <action name="Cataddroot" class="web.admin.CatManagerAction" method="addroot">
+              <result name="add" type="redirect">/admin/Catlist.action</result>
+        </action>
 	</package>
 
 </struts>    

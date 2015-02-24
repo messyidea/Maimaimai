@@ -29,7 +29,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</ul>
 			</div>
 			<div class="span7">
-			
+				<form class="form-inline" action="Cataddroot.action">
+					<fieldset>
+						<label>要增加的主类名</label>
+						<p>
+							<input type="text" name="name" />
+						</p>
+						
+						<p>
+							<button class="btn" type="submit">提交</button>
+						</p>
+					</fieldset>
+				</form>
 				<!-- 
       <div class="hero-unit">
         <h1>

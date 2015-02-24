@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="nav-header">管理中心</li>
 					<li ><a href="showUser.action">用户管理</a></li>
 					<li class="active"><a href="#">店铺管理</a></li>
-					<li><a href="/Maimaimai/admin/addcategory.jsp">类别管理</a></li>
+					<li><a href="Catlist.action">类别管理</a></li>
 
 					<li><a href="#">帮助</a></li>
 				</ul>

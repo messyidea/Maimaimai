@@ -122,6 +122,7 @@ public class BaseDaoImpl implements BaseDao {
 	public List getObjects(Class clazz) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.openSession();
+		//System.out.println(clazz.getName());
 		List alist = session.createQuery("from " + clazz.getName()).list();
 		session.close();
 		return alist;

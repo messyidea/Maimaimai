@@ -9,9 +9,9 @@ import dao.SoncatDao;
 public class SoncatDaoImpl extends BaseDaoImpl implements SoncatDao{
 
 	@Override
-	public void savecatDao(Soncat rootcat) {
+	public void savecatDao(Soncat soncat) {
 		// TODO Auto-generated method stub
-		super.insert(rootcat);
+		super.insert(soncat);
 	}
 
 	@Override
@@ -25,7 +25,9 @@ public class SoncatDaoImpl extends BaseDaoImpl implements SoncatDao{
 	@Override
 	public List<Soncat> getlistById(String id) {
 		// TODO Auto-generated method stub
-		return super.search("from soncat where fa=" + id);
+		String hql = "from model.Soncat as cat where cat.fa='"+id+"'";
+		System.out.println(hql);
+		return super.search(hql);
 	}
 
 	@Override

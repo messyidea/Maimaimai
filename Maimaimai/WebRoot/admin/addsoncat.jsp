@@ -29,6 +29,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</ul>
 			</div>
 			<div class="span7">
+				<form class="form-inline" action="Cataddson2.action">
+				<s:hidden name="id"/>
+					<fieldset>
+						<label>要增加的子类名</label>
+						<p>
+							<input type="text" name="name" />
+						</p>
+						
+						<p>
+							<button class="btn" type="submit">提交</button>
+						</p>
+					</fieldset>
+				</form>
 			
 				<!-- 
       <div class="hero-unit">

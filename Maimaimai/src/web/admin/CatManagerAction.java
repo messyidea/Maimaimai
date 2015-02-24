@@ -23,10 +23,11 @@ public class CatManagerAction extends ActionSupport{
 	RootcatDao rootcatdao = new RootcatDaoImpl();
 	SoncatDao soncatdao = new SoncatDaoImpl();
 	
-	private String id;
+	private Integer id;
 	private String name;
 	private Rootcat rootcat;
 	private Soncat soncat;
+	private String idd;
 	
 	List<Rootcat> rootcatlist = null;
 	List<List<Soncat> > soncatlist = null;
@@ -34,30 +35,56 @@ public class CatManagerAction extends ActionSupport{
 	public String list(){
 		rootcatlist = rootcatdao.getAll(Rootcat.class);
 		soncatlist = new ArrayList<List<Soncat> >();
+		List<Soncat> sc = new ArrayList<Soncat>();
 		for(Rootcat r:rootcatlist) {
 			String id = Integer.toString(r.getId());
-			System.out.println(id);
-			System.out.println(r.getName());
+			sc = new ArrayList<Soncat>();
+			//sc.clear();
+			//System.out.println(id);
+			//System.out.println(r.getName());
 			//List<Soncat> sc = soncatdao.getlistById(id);
-			List<Soncat> sc = soncatdao.getAll(Soncat.class);
-			System.out.println(sc.size());
+			sc = soncatdao.getlistById(id);
+			//System.out.println("size == " + sc.size());
+			//sc = soncatdao.getAll(Soncat.class);
 			soncatlist.add(sc);
 		}
-		/*for(List<Soncat> r:soncatlist) {
+		System.out.println("xixixi");
+		System.out.println(soncatlist.size());
+		for(List<Soncat> r:soncatlist) {
+			System.out.println("size = " + r.size());
 			for(Soncat rs:r) {
 				System.out.println(rs.getName());
 				System.out.println(rs.getId());
 				System.out.println(rs.getFa());
 			}
-		}*/
-		System.out.println("hehehe");
+		}
 		return "list";
 	}
 	
 	public String addson() {
 		HttpServletRequest request = ServletActionContext.getRequest();
-		String idd = request.getParameter("id");
-		System.out.println("XIXI " + idd);
+		idd = request.getParameter("id");
+		//System.out.println("XIXI " + idd);
+		return "add";
+	}
+	
+	public String addson2() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		//idd = request.getParameter("id");
+		//System.out.println("idd == " + id);
+		//System.out.println("name == " + name);
+		Soncat sc = new Soncat();
+		sc.setFa(id);
+		sc.setName(name);
+		soncatdao.savecatDao(sc);
+		//System.out.println("XIXI " + idd);
+		return "add";
+	}
+	
+	public String addroot() {
+		Rootcat rc = new Rootcat();
+		rc.setName(name);
+		rootcatdao.savecatDao(rc);
 		return "add";
 	}
 	
@@ -74,10 +101,10 @@ public class CatManagerAction extends ActionSupport{
 	public void setSoncatdao(SoncatDao soncatdao) {
 		this.soncatdao = soncatdao;
 	}
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getName() {
