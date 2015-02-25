@@ -2,56 +2,56 @@ package dao.impl;
 
 import java.util.List;
 
-import model.Order;
+import model.Iorder;
 import model.Shopcar;
 import dao.OrderDao;
 
 public class OrderDaoImpl extends BaseDaoImpl implements OrderDao {
 
 	@Override
-	public void saveItem(Order order) {
+	public void saveItem(Iorder order) {
 		// TODO Auto-generated method stub
 		super.insert(order);
 	}
 
 	@Override
-	public List<Order> getAllOrder(Class clazz) {
+	public List<Iorder> getAllOrder(Class clazz) {
 		// TODO Auto-generated method stub
-		return super.getObjects(Order.class);
+		return super.getObjects(Iorder.class);
 	}
 
 	@Override
-	public List<Order> findByName(String name) {
+	public List<Iorder> findByName(String name) {
 		// TODO Auto-generated method stub
-		List<Order> list = super.search("from Order where username = '"+name+"'");
+		List<Iorder> list = super.search("from Iorder where username = '"+name+"'");
 		return list;
 	}
 	
 	
 
 	@Override
-	public List<Order> getOrderByShopname(String name) {
+	public List<Iorder> getOrderByShopname(String name) {
 		// TODO Auto-generated method stub
-		List<Order> list = super.search("from Order where shopname = '"+name+"'");
+		List<Iorder> list = super.search("from Iorder where shopname = '"+name+"'");
 		return list;
 	}
 
 	@Override
 	public void deleteOrderByName(String name) {
 		// TODO Auto-generated method stub
-		super.delete(Order.class, name);
+		super.delete(Iorder.class, name);
 	}
 
 	@Override
-	public void update(Order order) {
+	public void update(Iorder order) {
 		// TODO Auto-generated method stub
 		super.renew(order);
 	}
 
 	@Override
-	public Order getOrderById(String id) {
+	public Iorder getOrderById(String id) {
 		// TODO Auto-generated method stub
-		Order order = (Order)super.getObject(Order.class, id);
+		Iorder order = (Iorder)super.getObject(Iorder.class, id);
 		return order;
 	}
 

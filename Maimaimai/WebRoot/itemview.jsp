@@ -27,6 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			商品介绍：<h5><s:property value="item.itemdesc" /> <h5>
 			商品评价：<h5><s:property value="item.grade" /> <h5>
 			所属类别：<h5><s:property value="item.itemcat" /> <h5>
+			<a class="btn" href="<s:url action="Orderbuy" ><s:param name="id" value="#l3.id"/></s:url>">下单</a>
 		</div>
 	</div>
 	<div class="row">

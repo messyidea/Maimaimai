@@ -68,6 +68,13 @@
         <action name="Itemcatget" class="web.admin.CatManagerAction" method="catget">
               <result name="success">/seller/additems.jsp</result>
         </action>
+        <action name="Orderbuy" class="web.admin.OrderManagerAction" method="buy">
+              <result name="success" type="redirect">/customer/Orderlist.action</result>
+        </action>
+        <action name="Orderlist" class="web.admin.OrderManagerAction" method="list">
+              <result name="list">/customer/usercenter.jsp</result>
+        </action>
+        
 	</package>
 
 </struts>    

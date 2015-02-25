@@ -2,21 +2,21 @@ package dao;
 
 import java.util.List;
 
-import model.Order;
+import model.Iorder;
 
 
 public interface OrderDao {
-	public void saveItem(Order order);
+	public void saveItem(Iorder order);
 	
-	public List<Order> getAllOrder(Class clazz);
+	public List<Iorder> getAllOrder(Class clazz);
 	
-	public List<Order> findByName(String name);
+	public List<Iorder> findByName(String name);
 	
 	public void deleteOrderByName(String name);
 	
-	public void update(Order order);
+	public void update(Iorder order);
 	
-	public Order getOrderById(String id);
+	public Iorder getOrderById(String id);
 	
-	public List<Order> getOrderByShopname(String name);
+	public List<Iorder> getOrderByShopname(String name);
 }

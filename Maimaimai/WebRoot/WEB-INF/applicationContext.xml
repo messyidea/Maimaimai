@@ -43,8 +43,8 @@
 				<value>model/Soncat.hbm.xml</value>
 				<value>model/Shop.hbm.xml</value>
 				<value>model/Item.hbm.xml</value>
-				<value>model/Order.hbm.xml</value>
-				<value>model/Shopcar.hbm.xml</value></list>
+				<value>model/Shopcar.hbm.xml</value>
+				<value>model/Iorder.hbm.xml</value></list>
 		</property>
 		
 
