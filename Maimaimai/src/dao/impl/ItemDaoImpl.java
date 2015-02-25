@@ -15,7 +15,7 @@ public class ItemDaoImpl  extends BaseDaoImpl implements ItemDao{
 	}
 
 	@Override
-	public List<Item> getAllShop(Class clazz) {
+	public List<Item> getAllItem(Class clazz) {
 		// TODO Auto-generated method stub
 		return super.getObjects(Item.class);
 	}
@@ -45,5 +45,14 @@ public class ItemDaoImpl  extends BaseDaoImpl implements ItemDao{
 		Item item = (Item)super.getObject(Item.class, name);
 		return item;
 	}
+
+	@Override
+	public List<Item> findByCat(String name) {
+		// TODO Auto-generated method stub
+		List<Item> list = super.search("from Item where itemcat = "+name+"");
+		return list;
+	}
+	
+	
 
 }

@@ -48,7 +48,12 @@
         <action name="Itemlist" class="web.admin.ItemManagerAction" method="list">
               <result name="list">/seller/itemmanagement.jsp</result>
         </action>
-        
+        <action name="index" class="web.admin.IndexManagerAction" method="list">
+              <result name="list">/index2.jsp</result>
+        </action>
+        <action name="Indexshow" class="web.admin.IndexManagerAction" method="show">
+              <result name="show">/index2.jsp</result>
+        </action>
 	</package>
 
 </struts>    

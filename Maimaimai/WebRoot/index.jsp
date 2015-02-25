@@ -8,15 +8,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
-
+	<meta http-equiv="refresh" content="0.001;url=index.action">
+	
   </head>
   <body>
 
 
     <%@ include file="/common/header.jsp"%>
-	<legend></legend>
-	
-	<strong>บวบว succeed</strong>
+	wait
 
 	<legend></legend>
     <%@ include file="/common/foot.jsp"%>

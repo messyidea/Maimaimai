@@ -10,7 +10,7 @@
 					<div class="container-fluid">
 						<a class="btn btn-navbar"
 							data-target=".navbar-responsive-collapse" data-toggle="collapse"></a>
-						<a class="brand" href="/Maimaimai/index.jsp">ÂòÂòÂò</a>
+						<a class="brand" href="index.action">ÂòÂòÂò</a>
 						<div class="nav-collapse collapse navbar-responsive-collapse">
 							<ul class="nav">
 								<%

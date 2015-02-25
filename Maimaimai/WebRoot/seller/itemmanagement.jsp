@@ -33,6 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					商品价格：<h5><s:property value="#l1.price" /> <h5>
 					店铺介绍：<h5><s:property value="#l1.itemdesc" /> <h5>
 					店铺评价：<h5><s:property value="#l1.grade" /> <h5>
+					所属类别：<h5><s:property value="#l1.itemcat" /> <h5>
 					<legend></legend>
 				</s:iterator>
 				<br>

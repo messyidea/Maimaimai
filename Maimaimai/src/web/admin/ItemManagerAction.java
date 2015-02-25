@@ -45,6 +45,7 @@ public class ItemManagerAction extends ActionSupport{
 		Map session = actionContext.getSession();
 		String shopname = (String)session.get("shopname");
 		item.setShopname(shopname);
+		item.setItemcat(itemcat);
 		itemdao.saveItem(item);
 		return "add";
 	}
