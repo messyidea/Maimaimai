@@ -3,7 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@ taglib uri ="/struts-tags" prefix ="s" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -51,17 +51,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </ul>
     </div>
     <div class="span7">
-      <div class="hero-unit">
-        <h1>
-          Hello, world!
-        </h1>
-        <p>
-          这是一个可视化布局模板, 你可以点击模板里的文字进行修改, 也可以通过点击弹出的编辑框进行富文本修改. 拖动区块能实现排序.
-        </p>
-        <p>
-          <a class="btn btn-primary btn-large" href="#">参看更多 ?</a>
-        </p>
-      </div>
+      <s:iterator value="itemlist" var="l1" status="sta">
+					商品名：<h5><s:property value="#l1.id" /> <h5>
+					商品价格：<h5><s:property value="#l1.price" /> <h5>
+					商品介绍：<h5><s:property value="#l1.itemdesc" /> <h5>
+					商品评价：<h5><s:property value="#l1.grade" /> <h5>
+					商品类别：<h5><s:property value="#l1.itemcat" /> <h5>
+					<legend></legend>
+				</s:iterator>
+				<br>
     </div>
     <div class="span3 accordion-group well">
       <img class="accordion-group" alt="140x140" width="140" height="140" src="<%

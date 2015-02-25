@@ -31,9 +31,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<s:iterator value="itemlist" var="l1" status="sta">
 					商品名：<h5><s:property value="#l1.itemname" /> <h5>
 					商品价格：<h5><s:property value="#l1.price" /> <h5>
-					店铺介绍：<h5><s:property value="#l1.itemdesc" /> <h5>
-					店铺评价：<h5><s:property value="#l1.grade" /> <h5>
-					所属类别：<h5><s:property value="#l1.itemcat" /> <h5>
+					商品介绍：<h5><s:property value="#l1.itemdesc" /> <h5>
+					商品评价：<h5><s:property value="#l1.grade" /> <h5>
+					商品类别：<h5><s:property value="#l1.itemcat" /> <h5>
 					<legend></legend>
 				</s:iterator>
 				<br>

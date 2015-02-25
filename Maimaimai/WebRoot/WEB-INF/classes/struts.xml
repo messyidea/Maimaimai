@@ -54,6 +54,20 @@
         <action name="Indexshow" class="web.admin.IndexManagerAction" method="show">
               <result name="show">/index2.jsp</result>
         </action>
+        <action name="Itemshow" class="web.admin.ItemManagerAction" method="show">
+              <result name="show">/itemview.jsp</result>
+        </action>
+        <action name="Shopcaradd" class="web.admin.ItemManagerAction" method="addtoshopcar">
+              <result name="not_login" type="redirect">/index.action</result>
+              <result name="success" type="redirect">/customer/Shopcarlist.action</result>
+        </action>
+        <action name="Shopcarlist" class="web.admin.UserManagerAction" method="shopcarlist">
+        	  <result name="not_login" type="redirect">/index.action</result>
+              <result name="success">/customer/shoppingcar.jsp</result>
+        </action>
+        <action name="Itemcatget" class="web.admin.CatManagerAction" method="catget">
+              <result name="success">/seller/additems.jsp</result>
+        </action>
 	</package>
 
 </struts>    

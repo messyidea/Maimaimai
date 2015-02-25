@@ -52,6 +52,13 @@ public class ItemDaoImpl  extends BaseDaoImpl implements ItemDao{
 		List<Item> list = super.search("from Item where itemcat = "+name+"");
 		return list;
 	}
+
+	@Override
+	public Item getItemById(String id) {
+		// TODO Auto-generated method stub
+		List<Item> list = super.search("from Item where id = "+id+"");
+		return list.get(0);
+	}
 	
 	
 

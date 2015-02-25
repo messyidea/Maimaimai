@@ -31,6 +31,12 @@ public class CatManagerAction extends ActionSupport{
 	
 	List<Rootcat> rootcatlist = null;
 	List<List<Soncat> > soncatlist = null;
+	List<Soncat> soncatlist2;
+	
+	public String catget() {
+		soncatlist2 = soncatdao.getAll(Soncat.class);
+		return "success";
+	}
 	
 	public String list(){
 		rootcatlist = rootcatdao.getAll(Rootcat.class);
@@ -136,6 +142,14 @@ public class CatManagerAction extends ActionSupport{
 	}
 	public void setSoncatlist(List<List<Soncat>> soncatlist) {
 		this.soncatlist = soncatlist;
+	}
+
+	public List<Soncat> getSoncatlist2() {
+		return soncatlist2;
+	}
+
+	public void setSoncatlist2(List<Soncat> soncatlist2) {
+		this.soncatlist2 = soncatlist2;
 	}
 	
 	

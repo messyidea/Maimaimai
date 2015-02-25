@@ -4,12 +4,16 @@ import java.util.List;
 import java.util.Map;
 
 import model.Item;
+import model.Shopcar;
+import model.Soncat;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import dao.ItemDao;
+import dao.ShopcarDao;
 import dao.impl.ItemDaoImpl;
+import dao.impl.ShopcarDaoImpl;
 
 public class ItemManagerAction extends ActionSupport{
 	private Integer id;
@@ -34,6 +38,10 @@ public class ItemManagerAction extends ActionSupport{
 	
 	private Item item;
 	
+	private Shopcar shopcar;
+	
+	private ShopcarDao shopcardao= new ShopcarDaoImpl();
+	
 	public String add() {
 		item = new Item();
 		item.setGrade(5);
@@ -56,6 +64,30 @@ public class ItemManagerAction extends ActionSupport{
 		String shopname = (String)session.get("shopname");
 		itemlist = itemdao.findByName(shopname);
 		return "list";
+	}
+	
+	public String show() {
+		String idd = id.toString();
+		item = itemdao.getItemById(idd);
+		return "show";
+	}
+	
+	
+	
+	public String addtoshopcar() {
+		ActionContext actionContext = ActionContext.getContext();
+		Map session = actionContext.getSession();
+		String isOnline = (String)session.get("Login");
+		if(isOnline == null || isOnline.equals("")) return "not_login";
+		String username = (String)session.get("username");
+		shopcar = new Shopcar();
+		shopcar.setItemid(id);
+		shopcar.setUsername(username);
+		//System.out.println(username + "  hehe");
+		shopcardao.saveShopcar(shopcar);
+		//System.out.println(username + "  xixi");
+		
+		return "success";
 	}
 
 	public Integer getId() {
@@ -100,6 +132,22 @@ public class ItemManagerAction extends ActionSupport{
 
 	public String getItemdesc() {
 		return itemdesc;
+	}
+
+	public Shopcar getShopcar() {
+		return shopcar;
+	}
+
+	public void setShopcar(Shopcar shopcar) {
+		this.shopcar = shopcar;
+	}
+
+	public ShopcarDao getShopcardao() {
+		return shopcardao;
+	}
+
+	public void setShopcardao(ShopcarDao shopcardao) {
+		this.shopcardao = shopcardao;
 	}
 
 	public void setItemdesc(String itemdesc) {

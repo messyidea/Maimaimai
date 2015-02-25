@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <a href="#">订单管理</a>
         </li>
         <li>
-          <a href="/Maimaimai/customer/shoppingcar.jsp">我的购物车</a>
+          <a href="Shopcarlist.action">我的购物车</a>
         </li>
         <li>
           <a href="/Maimaimai/customer/changeinfo.jsp">修改资料</a>

@@ -14,15 +14,21 @@ import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
 
+import model.Item;
 import model.Shop;
+import model.Shopcar;
 import model.User;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
+import dao.ItemDao;
 import dao.ShopDao;
+import dao.ShopcarDao;
 import dao.UserDao;
+import dao.impl.ItemDaoImpl;
 import dao.impl.ShopDaoImpl;
+import dao.impl.ShopcarDaoImpl;
 import dao.impl.UserDaoImpl;
 import dto.UserDto;
 
@@ -40,6 +46,12 @@ public class UserManagerAction extends ActionSupport{
 	private String haveimg;
 	private String shopdesc;
 	private ShopDao shopdao = new ShopDaoImpl();
+	private Shopcar shopcar;
+	private ShopcarDao shopcardao = new ShopcarDaoImpl();
+	List<Shopcar> shopcarlist;
+	List<Item> itemlist;
+	ItemDao itemdao = new ItemDaoImpl();
+	
 	
 	private User user;
 	
@@ -48,7 +60,6 @@ public class UserManagerAction extends ActionSupport{
 	private List<User> users = new ArrayList<User>();
 	
 	private List<UserDto> dtolist = new ArrayList<UserDto>();
-
 	
 	public String getShopname() {
 		return shopname;
@@ -256,6 +267,26 @@ public class UserManagerAction extends ActionSupport{
 		}
 	}
 	
+	public String shopcarlist() {
+		ActionContext actionContext = ActionContext.getContext();
+		Map session = actionContext.getSession();
+		String isOnline = (String)session.get("Login");
+		System.out.println("isOnline == "+isOnline);
+		if(isOnline == null || isOnline.equals("")) return "not_login";
+		username = (String)session.get("username");
+		user = userDao.getUserByName(username);
+		if(user == null) return "not found";
+		shopcarlist = shopcardao.findByName(username);
+		itemlist = new ArrayList<Item>();
+		for(Shopcar sc:shopcarlist) {
+			Item it = itemdao.getItemById(sc.getItemid().toString());
+			System.out.println("id == "+it.getId());
+			itemlist.add(it);
+		}
+		System.out.println("size == "+itemlist.size());
+		return "success";
+	}
+	
 	public String userlogout() throws Exception {
 		ActionContext actionContext = ActionContext.getContext();
 		Map session = actionContext.getSession();
@@ -313,6 +344,46 @@ public class UserManagerAction extends ActionSupport{
 
 	public void setShopdao(ShopDao shopdao) {
 		this.shopdao = shopdao;
+	}
+
+	public Shopcar getShopcar() {
+		return shopcar;
+	}
+
+	public void setShopcar(Shopcar shopcar) {
+		this.shopcar = shopcar;
+	}
+
+	public ShopcarDao getShopcardao() {
+		return shopcardao;
+	}
+
+	public void setShopcardao(ShopcarDao shopcardao) {
+		this.shopcardao = shopcardao;
+	}
+
+	public List<Shopcar> getShopcarlist() {
+		return shopcarlist;
+	}
+
+	public void setShopcarlist(List<Shopcar> shopcarlist) {
+		this.shopcarlist = shopcarlist;
+	}
+
+	public List<Item> getItemlist() {
+		return itemlist;
+	}
+
+	public void setItemlist(List<Item> itemlist) {
+		this.itemlist = itemlist;
+	}
+
+	public ItemDao getItemdao() {
+		return itemdao;
+	}
+
+	public void setItemdao(ItemDao itemdao) {
+		this.itemdao = itemdao;
 	}
 	
 	

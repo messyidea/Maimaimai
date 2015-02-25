@@ -18,4 +18,6 @@ public interface ItemDao {
 	public void update(Item item);
 	
 	public Item getItemByName(String name);
+	
+	public Item getItemById(String id);
 }

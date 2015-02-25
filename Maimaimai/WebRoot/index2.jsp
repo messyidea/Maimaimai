@@ -33,9 +33,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					
 					<s:iterator value="soncatlist[#sta.index]" var="l2">
 						<s:iterator>
+						<li>
 							<a href="<s:url action="Indexshow" ><s:param name="id" value="#l2.id"/></s:url>">
 								<s:property value="#l2.name" />
 							</a>
+						</li>
 						</s:iterator>
 					</s:iterator>
 					
@@ -56,7 +58,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<s:property value="#l3.itemdesc" />
 							</p>
 							<p>
-								<a class="btn btn-primary" href="#">浏览</a> <a class="btn" href="#">加入购物车</a>
+								<a class="btn btn-primary" href="<s:url action="Itemshow" ><s:param name="id" value="#l3.id"/></s:url>">浏览</a> 
+								<a class="btn" href="<s:url action="Shopcaradd" ><s:param name="id" value="#l3.id"/></s:url>">加入购物车</a>
 							</p>
 						</div>
 					</div>

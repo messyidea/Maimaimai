@@ -75,6 +75,8 @@ public class IndexManagerAction extends ActionSupport{
 		System.out.println("size == "+itemlist.size());
 		return "show";
 	}
+	
+	
 	public RootcatDao getRootcatdao() {
 		return rootcatdao;
 	}

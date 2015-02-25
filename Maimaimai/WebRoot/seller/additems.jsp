@@ -44,7 +44,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</p>
 						<label>所属类别</label>
 						<p>
-							<input type="text" name="itemcat" />
+						<select name="itemcat">
+						<s:iterator value="soncatlist2">
+							<option value ="<s:property value="id" />">
+								<s:property value="name" />
+							</option>
+						</s:iterator>
+						</select>
 						</p>
 						<label>其它信息</label>
 						<p>

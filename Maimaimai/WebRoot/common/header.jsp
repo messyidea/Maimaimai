@@ -34,7 +34,7 @@
 			out.println("</a>");
 			out.println("<ul class=\"dropdown-menu\">");
 			out.println("<li><a href=\"/Maimaimai/customer/usercenter.jsp\">用户中心</a></li>");
-			out.println("<li><a href=\"/Maimaimai/customer/shoppingcar.jsp\">购物车</a></li>");
+			out.println("<li><a href=\"Shopcarlist.action\">购物车</a></li>");
 			out.println("<li><a href=\"/Maimaimai/customer/favorite.jsp\">收藏夹</a></li>");
 			out.println("</ul></li>");
 			out.println("<li><a href=\"userlogout.action\">登出</a></li>");
@@ -51,7 +51,7 @@
 			//response.setHeader("Refresh","5;URL=login.jsp");	
 		}
                      			%>
-								<li><a href="/Maimaimai/customer/shoppingcar.jsp">购物车</a></li>
+								<li><a href="Shopcarlist.action">购物车</a></li>
 								<li><a href="/Maimaimai/customer/favorite.jsp">收藏夹</a></li>
 								<!-- 
 								<li class="dropdown"><a class="dropdown-toggle"
