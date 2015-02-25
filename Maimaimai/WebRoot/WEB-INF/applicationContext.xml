@@ -42,7 +42,9 @@
 				<value>model/Rootcat.hbm.xml</value>
 				<value>model/Soncat.hbm.xml</value>
 				<value>model/Shop.hbm.xml</value>
-				<value>model/Item.hbm.xml</value></list>
+				<value>model/Item.hbm.xml</value>
+				<value>model/Order.hbm.xml</value>
+				<value>model/Shopcar.hbm.xml</value></list>
 		</property>
 		
 
@@ -73,6 +75,18 @@
 	</bean>  
 	
 	<bean id="itemdao" class="dao.impl.ItemDaoImpl">  
+	   <property name="sessionFactory">
+	    <ref bean="sessionFactory" />
+	   </property>  
+	</bean> 
+	
+	<bean id="shopcardao" class="dao.impl.ShopcarDaoImpl">  
+	   <property name="sessionFactory">
+	    <ref bean="sessionFactory" />
+	   </property>  
+	</bean> 
+	
+	<bean id="orderdao" class="dao.impl.OrderDaoImpl">  
 	   <property name="sessionFactory">
 	    <ref bean="sessionFactory" />
 	   </property>  
