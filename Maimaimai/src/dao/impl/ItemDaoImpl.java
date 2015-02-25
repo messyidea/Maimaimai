@@ -23,7 +23,7 @@ public class ItemDaoImpl  extends BaseDaoImpl implements ItemDao{
 	@Override
 	public List<Item> findByName(String name) {
 		// TODO Auto-generated method stub
-		List<Item> list = super.search("from Item where itemname like '%"+name+"%'");
+		List<Item> list = super.search("from Item where shopname = '"+name+"'");
 		return list;
 	}
 

@@ -22,25 +22,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<ul class="nav nav-list well">
 					<li class="nav-header">管理中心</li>
 					<li><a href="/Maimaimai/seller/sellercenter.jsp">订单管理</a></li>
-					<li><a href="#">分类管理</a></li>
-					<li class="active"><a href="#">物品管理</a></li>
+					<li><a href="/Maimaimai/seller/additems.jsp">添加物品</a></li>
+					<li class="active"><a href="Itemlist.action">物品管理</a></li>
 
 				</ul>
 			</div>
 			<div class="span7">
-				
+				<s:iterator value="itemlist" var="l1" status="sta">
+					商品名：<h5><s:property value="#l1.itemname" /> <h5>
+					商品价格：<h5><s:property value="#l1.price" /> <h5>
+					店铺介绍：<h5><s:property value="#l1.itemdesc" /> <h5>
+					店铺评价：<h5><s:property value="#l1.grade" /> <h5>
+					<legend></legend>
+				</s:iterator>
+				<br>
 				 
-      <div class="hero-unit">
-        <h1>
-          Hello, world!
-        </h1>
-        <p>
-          这是一个可视化布局模板, 你可以点击模板里的文字进行修改, 也可以通过点击弹出的编辑框进行富文本修改. 拖动区块能实现排序.
-        </p>
-        <p>
-          <a class="btn btn-primary btn-large" href="#">参看更多 ?</a>
-        </p>
-      </div>
+      
        
 			</div>
 			<div class="span3 accordion-group well">

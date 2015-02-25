@@ -42,6 +42,13 @@
         <action name="Shoplist" class="web.admin.ShopManagerAction" method="list">
               <result name="list">/admin/showshops.jsp</result>
         </action>
+        <action name="Itemadd" class="web.admin.ItemManagerAction" method="add">
+              <result name="add" type="redirect">/seller/Itemlist.action</result>
+        </action>
+        <action name="Itemlist" class="web.admin.ItemManagerAction" method="list">
+              <result name="list">/seller/itemmanagement.jsp</result>
+        </action>
+        
 	</package>
 
 </struts>    

@@ -38,6 +38,7 @@ public class UserManagerAction extends ActionSupport{
 	private String grade; 
 	private String shopname;
 	private String haveimg;
+	private String shopdesc;
 	private ShopDao shopdao = new ShopDaoImpl();
 	
 	private User user;
@@ -75,6 +76,14 @@ public class UserManagerAction extends ActionSupport{
 
 	public List<User> getUsers() {
 		return users;
+	}
+
+	public String getShopdesc() {
+		return shopdesc;
+	}
+
+	public void setShopdesc(String shopdesc) {
+		this.shopdesc = shopdesc;
 	}
 
 	public void setUsers(List<User> users) {
@@ -276,7 +285,7 @@ public class UserManagerAction extends ActionSupport{
 		Shop shop = new Shop();
 		shop.setShopname(shopname);
 		shop.setGrade(5);
-		shop.setShopdesc("hahaha");
+		shop.setShopdesc(shopdesc);
 		shop.setUsername(username);
 		shopdao.saveShop(shop);
 		return "success";
@@ -292,7 +301,7 @@ public class UserManagerAction extends ActionSupport{
 		user = userDao.getUserByName(username);
 		if(user == null) return "not found";
 		user.setUserdesc(userdesc);
-		System.out.println(userdesc);
+		//System.out.println(userdesc);
 		session.put("userdesc", userdesc);
 		userDao.update(user);
 		return "success";

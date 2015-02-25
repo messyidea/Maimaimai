@@ -14,7 +14,7 @@
             <column name="itemname" length="20" />
         </property>
         <property name="price" type="java.lang.Float">
-            <column name="price" precision="9" scale="7" />
+            <column name="price" precision="10" scale="2" />
         </property>
         <property name="num" type="java.lang.Integer">
             <column name="num" />
@@ -27,6 +27,9 @@
         </property>
         <property name="grade" type="java.lang.Integer">
             <column name="grade" />
+        </property>
+        <property name="itemcat" type="java.lang.Integer">
+            <column name="itemcat" />
         </property>
     </class>
 </hibernate-mapping>

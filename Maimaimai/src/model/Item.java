@@ -16,6 +16,18 @@ public class Item implements Serializable {
 	private String itemdesc;
 	
 	private Integer grade;
+	
+	private Integer itemcat;
+	
+	
+
+	public Integer getItemcat() {
+		return itemcat;
+	}
+
+	public void setItemcat(Integer itemcat) {
+		this.itemcat = itemcat;
+	}
 
 	public Integer getId() {
 		return id;
