@@ -19,14 +19,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="container">
 	<div class="row">
 		<div class="span6">
-			<img alt="140x140" src="a.jpg" />
+			<img alt="140x140" src="/Maimaimai/headimg/<s:property value="item.itemname" />.jpg" />
 		</div>
 		<div class="span6">
 			<form class="form-inline" action="Orderbuy.action">
 				<s:hidden name="id"/>
 					<fieldset>
 						<legend>确认下单</legend>
-						商品名：<h5><s:property value="item.name" /> <h5>
+						商品名：<h5><s:property value="item.itemname" /> <h5>
 						商品价格：<h5><s:property value="item.price" /> <h5>
 						商品介绍：<h5><s:property value="item.itemdesc" /> <h5>
 						商品评价：<h5><s:property value="item.grade" /> <h5>
@@ -58,6 +58,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	<div class="row">
 		<div class="span12">
+		<legend>评论</legend>
+		<s:iterator value="orderlist" var="l1">
+		
+			<s:if test="#l1.useridea!=null">
+				用户名：<s:property value="#l1.username" /> <br>
+				用户评价：<s:property value="#l1.useridea" /> 
+			
+			</s:if>
+		</s:iterator>
 		</div>
 	</div>
 	<div class="row">
@@ -66,7 +75,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 </div>
 	
-	<legend></legend>
+	
     <%@ include file="/common/foot.jsp"%>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

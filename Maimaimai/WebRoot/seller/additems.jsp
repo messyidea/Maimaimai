@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="span2 accordion-group">
 				<ul class="nav nav-list well">
 					<li class="nav-header">管理中心</li>
-					<li ><a href="/Maimaimai/seller/sellercenter.jsp">订单管理</a></li>
+					<li ><a href="Orderlist2.action">订单管理</a></li>
 					<li class="active"><a href="/Maimaimai/seller/additems.jsp">添加物品</a></li>
 					<li><a href="Itemlist.action">物品管理</a></li>
 

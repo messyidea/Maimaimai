@@ -51,8 +51,19 @@ public class OrderDaoImpl extends BaseDaoImpl implements OrderDao {
 	@Override
 	public Iorder getOrderById(String id) {
 		// TODO Auto-generated method stub
-		Iorder order = (Iorder)super.getObject(Iorder.class, id);
-		return order;
+		List<Iorder> list = super.search("from Iorder where id = '"+id+"'");
+		return list.get(0);
 	}
+
+	@Override
+	public List<Iorder> getOrderByItemid(String id) {
+		// TODO Auto-generated method stub
+		List<Iorder> list = super.search("from Iorder where itemid = "+id+"");
+		return list;
+	}
+
+
+	
+	
 
 }

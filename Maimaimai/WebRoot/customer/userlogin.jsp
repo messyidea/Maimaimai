@@ -3,6 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%@ taglib uri ="/struts-tags" prefix ="s" %>
 <head>
     <title>ÓÃ»§µÇÂ¼</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,6 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="control-group">
               <div class="controls">
                  <label class="checkbox"><input type="checkbox" />Remember me</label> 
+                 <s:actionerror/>
 				 <button type="submit" class="btn" value="login">µÇÂ½</button>
 				 <!--
 				 <span>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span>

@@ -19,20 +19,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="container">
 	<div class="row">
 		<div class="span6">
-			<img alt="140x140" src="a.jpg" />
+			<img alt="140x140" src="/Maimaimai/headimg/<s:property value="item.itemname" />.jpg" />
 		</div>
 		<div class="span6">
-			商品名：<h5><s:property value="item.name" /> <h5>
+			商品名：<h5><s:property value="item.itemname" /> <h5>
 			商品价格：<h5><s:property value="item.price" /> <h5>
 			商品介绍：<h5><s:property value="item.itemdesc" /> <h5>
-			商品评价：<h5><s:property value="item.grade" /> <h5>
-			所属类别：<h5><s:property value="item.itemcat" /> <h5>
+			商品评价等级：<h5><s:property value="item.grade" /> <h5>
+			所属库存：<h5><s:property value="item.num" /> <h5>
 			<!--  <a class="btn" href="/Maimaimai/itemview2.jsp?id=<s:property value="item.id"/>">下单</a>-->
 			<a class="btn" href="<s:url action="Itemshow2" ><s:param name="id" value="item.id"/></s:url>">下单</a>
 		</div>
 	</div>
 	<div class="row">
 		<div class="span12">
+		<legend>评论</legend>
+		<s:iterator value="orderlist" var="l1">
+		
+			<s:if test="#l1.useridea!=null">
+				用户名：<s:property value="#l1.username" /> <br>
+				用户评价：<s:property value="#l1.useridea" /> 
+			
+			</s:if>
+		</s:iterator>
 		</div>
 	</div>
 	<div class="row">
@@ -41,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 </div>
 	
-	<legend></legend>
+	
     <%@ include file="/common/foot.jsp"%>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

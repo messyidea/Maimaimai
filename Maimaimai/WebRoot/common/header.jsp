@@ -80,7 +80,7 @@
 									<%
 										//String Login = (String)session.getAttribute("Login");
 										if(Login != null && (Login.equals("2") || Login.equals("3"))) {
-											out.println("<li><a href=\"/Maimaimai/seller/sellercenter.jsp\">卖家入口</a></li>");
+											out.println("<li><a href=\"Orderlist2.action\">卖家入口</a></li>");
 										} else {
 											out.println("<li><a href=\"/Maimaimai/customer/becomeseller.jsp\">成为卖家</a></li>");
 										}

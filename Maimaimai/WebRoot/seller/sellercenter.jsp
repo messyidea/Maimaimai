@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="span2 accordion-group">
 				<ul class="nav nav-list well">
 					<li class="nav-header">管理中心</li>
-					<li class="active"><a href="#">订单管理</a></li>
+					<li class="active"><a href="Orderlist2.action">订单管理</a></li>
 					<li><a href="Itemcatget.action">添加物品</a></li>
 					<li><a href="Itemlist.action">物品管理</a></li>
 
@@ -29,18 +29,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<div class="span7">
 				
-				 
-      <div class="hero-unit">
-        <h1>
-          Hello, world!
-        </h1>
-        <p>
-          这是一个可视化布局模板, 你可以点击模板里的文字进行修改, 也可以通过点击弹出的编辑框进行富文本修改. 拖动区块能实现排序.
-        </p>
-        <p>
-          <a class="btn btn-primary btn-large" href="#">参看更多 ?</a>
-        </p>
-      </div>
+				 <s:iterator value="orderlist" var="l1" status="sta">
+				<li class="span4">
+					<div class="thumbnail">
+						<!--  <img alt="300x200" src="/Maimaimai/itemimg/<s:property value="#l1.itemname" />.jpg" /> -->
+						<div class="caption">
+							商品名：<h5><s:property value="itemnames[#sta.index]" /> <h5>
+							时间：<h5><s:property value="#l1.buytime" /> <h5>
+							数量：<h5><s:property value="#l1.num" /> <h5>
+							订单备注：<h5><s:property value="#l1.orderdesc" /> <h5>
+							<p>
+								<s:if test="#l1.status=='1'.toString()">
+									<a class="btn btn-primary" href="<s:url action="Orderadds2" ><s:param name="idd" value="#l1.id"/></s:url>">发货</a> 
+								</s:if>
+								<s:if test="#l1.status=='2'.toString()">等待确认收货</s:if>
+								<s:if test="#l1.status=='3'.toString()">成功</s:if>
+							</p>
+						</div>
+					</div>
+				</li>
+			</s:iterator>
        
 			</div>
 			<div class="span3 accordion-group well">

@@ -241,7 +241,17 @@ public class UserManagerAction extends ActionSupport{
 
 
 	public String userregister() throws Exception {
-		System.out.println("hehe");
+		//System.out.println("hehe");
+		if(password.equals("") || password == null || username.equals("") || username == null) {
+			addActionError("用户名或密码不能为空！");
+			return "error";
+		}
+		user = userDao.getUserByName(username);
+		if(user != null) {
+			addActionError("已存在相同用户名用户！");
+			return "error";
+		}
+		
 		addUser();
 		return "success";
 	}
@@ -251,16 +261,25 @@ public class UserManagerAction extends ActionSupport{
 			return "error";
 		}
 		User u = userDao.isValidUser(username, password);
+		if(u == null) {
+			addActionError("用户名与密码不匹配！");
+			return "error";
+		}
+		//System.out.println(username + password);
 		ActionContext actionContext = ActionContext.getContext();
 		if(u != null){
+			System.out.println("xixixixi");
 			actionContext = ActionContext.getContext();
 			Map session = actionContext.getSession();
 			session.put("Login", u.getGrade());
 			session.put("username", username);
+			System.out.println("xixixixi");
 			session.put("userdesc", u.getUserdesc());
 			session.put("haveimg", u.getHaveimg());
 			session.put("shopname", u.getShopname());
-			Shop shop = shopdao.getShopByName(u.getShopname());
+			System.out.println("xixixixi");
+			Shop shop = shopdao.getShopByUsername(u.getUsername());
+			System.out.println("xixixixi");
 			if(shop != null)
 				session.put("ishopdesc", shop.getShopdesc());
 			//session.put("type", u.getGrade());

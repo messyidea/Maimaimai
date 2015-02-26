@@ -20,7 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="span2 accordion-group">
       <ul class="nav nav-list well">
         <li class="nav-header">
-          卖家中心
+           用户中心
         </li>
         <li>
           <a href="Orderlist.action">订单管理</a>

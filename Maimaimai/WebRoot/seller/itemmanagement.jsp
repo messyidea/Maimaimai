@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="span2 accordion-group">
 				<ul class="nav nav-list well">
 					<li class="nav-header">管理中心</li>
-					<li><a href="/Maimaimai/seller/sellercenter.jsp">订单管理</a></li>
+					<li><a href="Orderlist2.action">订单管理</a></li>
 					<li><a href="/Maimaimai/seller/additems.jsp">添加物品</a></li>
 					<li class="active"><a href="Itemlist.action">物品管理</a></li>
 
@@ -34,13 +34,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="thumbnail">
 						<img alt="300x200" src="/Maimaimai/itemimg/<s:property value="#l1.itemname" />.jpg" />
 						<div class="caption">
-							商品名：<h5><s:property value="#l1.itemname" /> <h5>
+							<h5>商品名：<s:property value="#l1.itemname" /> <h5>
 							商品价格：<h5><s:property value="#l1.price" /> <h5>
 							商品介绍：<h5><s:property value="#l1.itemdesc" /> <h5>
 							商品评价：<h5><s:property value="#l1.grade" /> <h5>
-							商品类别：<h5><s:property value="#l1.itemcat" /> <h5>
+							商品库存：<h5><s:property value="#l1.num" /> <h5>
 							<p>
-								<a class="btn btn-primary" >增加库存</a> 
+								<a class="btn btn-primary" href="<s:url action="kucunadd" ><s:param name="id" value="#l1.id"/></s:url>">增加库存</a> 
 							</p>
 						</div>
 					</div>

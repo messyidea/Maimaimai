@@ -5,7 +5,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-
+<%@ taglib uri ="/struts-tags" prefix ="s" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -42,8 +42,16 @@
 							<label>性别</label>
 						</p>
 						<p>
-							<input type="text" name="sex" />
+							<select name="sex">
+							<option value ="M">
+								男
+							</option>
+							<option value ="F">
+								女
+							</option>
+							</select>
 						</p>
+						<s:actionerror/>
 						<p>
 							<button class="btn" type="submit">提交</button>
 						</p>

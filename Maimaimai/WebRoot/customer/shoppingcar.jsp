@@ -20,7 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="span2 accordion-group">
       <ul class="nav nav-list well">
         <li class="nav-header">
-          卖家中心
+           用户中心
         </li>
         <li>
           <a href="Orderlist.action">订单管理</a>
@@ -59,7 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							商品评价：<h5><s:property value="#l1.grade" /> <h5>
 							<!--  商品类别：<h5><s:property value="#l1.itemcat" /> <h5>-->
 							<p>
-								<a class="btn btn-primary" >增加数量</a> 
+								<a class="btn btn-primary" href="<s:url action="Itemshow2" ><s:param name="id" value="#l1.id"/></s:url>">下单</a> 
 							</p>
 						</div>
 					</div>

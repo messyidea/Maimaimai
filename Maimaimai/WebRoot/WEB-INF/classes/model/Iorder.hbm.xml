@@ -31,5 +31,11 @@
         <property name="orderdesc" type="java.lang.String">
             <column name="orderdesc" length="40" />
         </property>
+        <property name="status" type="java.lang.String">
+            <column name="status" length="5" />
+        </property>
+        <property name="useridea" type="java.lang.String">
+            <column name="useridea" length="50" />
+        </property>
     </class>
 </hibernate-mapping>

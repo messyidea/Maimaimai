@@ -20,7 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="span2 accordion-group">
       <ul class="nav nav-list well">
         <li class="nav-header">
-          卖家中心
+           用户中心
         </li>
         <li class="active">
           <a href="Orderlist.action">订单管理</a>
@@ -56,9 +56,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							商品名：<h5><s:property value="itemnames[#sta.index]" /> <h5>
 							时间：<h5><s:property value="#l1.buytime" /> <h5>
 							数量：<h5><s:property value="#l1.num" /> <h5>
-							订单备注：<h5><s:property value="#l1.orderdesc" /> <h5>
+							<!--  订单备注：<h5><s:property value="#l1.orderdesc" /> <h5>
+							status：<h5><s:property value="#l1.status" /> <h5> -->
 							<p>
-								<a class="btn btn-primary" >增加数量</a> 
+							
+								<s:if test="#l1.status=='1'.toString()">
+									等待接单 
+								</s:if>
+								<s:if test="#l1.status=='2'.toString()">
+									<a class="btn btn-primary" href="<s:url action="Orderadds" ><s:param name="idd" value="#l1.id"/></s:url>">确认收货</a>
+								</s:if>
+								<s:if test="#l1.status=='3'.toString()">
+									
+									<a class="btn btn-primary" href="<s:url action="addorderid" ><s:param name="id" value="#l1.id"/></s:url>">评价</a>
+								</s:if>
+								
+								
+								<!--  <a class="btn btn-primary" >增加数量</a> -->
 							</p>
 						</div>
 					</div>

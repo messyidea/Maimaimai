@@ -2,12 +2,14 @@ package web.admin;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
+import model.Iorder;
 import model.Item;
 import model.Shopcar;
 import model.Soncat;
@@ -16,8 +18,10 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import dao.ItemDao;
+import dao.OrderDao;
 import dao.ShopcarDao;
 import dao.impl.ItemDaoImpl;
+import dao.impl.OrderDaoImpl;
 import dao.impl.ShopcarDaoImpl;
 
 public class ItemManagerAction extends ActionSupport{
@@ -46,6 +50,16 @@ public class ItemManagerAction extends ActionSupport{
 	private Shopcar shopcar;
 	private File itemimg;
 	private ShopcarDao shopcardao= new ShopcarDaoImpl();
+	private OrderDao orderdao = new OrderDaoImpl();
+	List<Iorder> orderlist;
+	public String kucunadd() {
+		item = itemdao.getItemById(id.toString());
+		Integer nn = item.getNum();
+		nn += 1;
+		item.setNum(nn);
+		itemdao.update(item);
+		return "success";
+	}
 	
 	public String add() {
 		item = new Item();
@@ -77,12 +91,20 @@ public class ItemManagerAction extends ActionSupport{
 	
 	public String show() {
 		String idd = id.toString();
+		//System.out.println("idd == "+idd);
 		item = itemdao.getItemById(idd);
+		orderlist = new ArrayList<Iorder>();
+		//System.out.println("idd1 == "+idd);
+		orderlist = orderdao.getOrderByItemid(idd);
+		System.out.println("size == "+orderlist.size());
+		//System.out.println("idd2 == "+idd);
 		return "show";
 	}
+	
 	public String show2() {
 		String idd = id.toString();
 		item = itemdao.getItemById(idd);
+		orderlist = orderdao.getOrderByItemid(idd);
 		return "show";
 	}
 	
@@ -230,6 +252,22 @@ public class ItemManagerAction extends ActionSupport{
 
 	public void setItemimg(File itemimg) {
 		this.itemimg = itemimg;
+	}
+
+	public OrderDao getOrderdao() {
+		return orderdao;
+	}
+
+	public void setOrderdao(OrderDao orderdao) {
+		this.orderdao = orderdao;
+	}
+
+	public List<Iorder> getOrderlist() {
+		return orderlist;
+	}
+
+	public void setOrderlist(List<Iorder> orderlist) {
+		this.orderlist = orderlist;
 	}
 	
 	

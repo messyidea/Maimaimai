@@ -52,7 +52,9 @@ public class BaseDaoImpl implements BaseDao {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.openSession();
 		try {
+			System.out.println("hehehe1");
 			session.update(po); // 记录不存在时,update也不会出错
+			System.out.println("hehehe2");
 		} catch (HibernateException ex) {
 			throw ex;
 		}

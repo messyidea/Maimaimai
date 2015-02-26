@@ -4,11 +4,12 @@
 	<package name="default" extends="struts-default">
 		<action name="userlogin" class="web.admin.UserManagerAction" method="userlogin">
               <result name="success">/index.jsp</result>        
-              <result name="error">/err.jsp</result>
+              <result name="error">/customer/userlogin.jsp</result>
               <result name="wrong">/err.jsp</result>
         </action>   
         <action name="userRegister" class="web.admin.UserManagerAction" method="userregister">
               <result name="success">/index.jsp</result>
+              <result name="error">/customer/userregister.jsp</result>
         </action>   
         <action name="userlogout" class="web.admin.UserManagerAction" method="userlogout">
               <result name="logout">/index.jsp</result>
@@ -79,6 +80,24 @@
         </action>
         <action name="Itemshow2" class="web.admin.ItemManagerAction" method="show2">
               <result name="show">/itemview2.jsp</result>
+        </action>
+        <action name="Orderlist2" class="web.admin.OrderManagerAction" method="list2">
+              <result name="list">/seller/sellercenter.jsp</result>
+        </action>
+        <action name="Orderadds" class="web.admin.OrderManagerAction" method="adds">
+              <result name="success" type="redirect">/customer/Orderlist.action</result>
+        </action>
+        <action name="Orderadds2" class="web.admin.OrderManagerAction" method="adds">
+              <result name="success" type="redirect">/customer/Orderlist2.action</result>
+        </action>
+        <action name="pingjia" class="web.admin.OrderManagerAction" method="pingjia">
+              <result name="success" type="redirect">/customer/Orderlist.action</result>
+        </action>
+        <action name="addorderid" class="web.admin.OrderManagerAction" method="addid">
+              <result name="success">/customer/pingjia.jsp</result>
+        </action>
+        <action name="kucunadd" class="web.admin.ItemManagerAction" method="kucunadd">
+              <result name="success" type="redirect">/seller/Itemlist.action</result>
         </action>
 	</package>
 

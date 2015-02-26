@@ -8,3 +8,5 @@ create table `iorder`(
 `grade` int(10),
 `orderdesc` varchar(40)
 );
+alter table iorder add column `status` varchar(5);
+alter table iorder add column `useridea` varchar(50);

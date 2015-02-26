@@ -48,8 +48,9 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 	@Override
 	public User getUserByName(String name) {
 		// TODO Auto-generated method stub
-		User user = (User)super.getObject(User.class, name);
-		return user;
+		List<User> list = super.search("from User where username = '"+name+"'");
+		if(list.size() == 0) return null;
+		return list.get(0);
 	}
 
 	@Override

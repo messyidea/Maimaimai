@@ -17,4 +17,6 @@ public interface ShopDao {
 	public void update(Shop shop);
 	
 	public Shop getShopByName(String name);
+	
+	public Shop getShopByUsername(String name);
 }
