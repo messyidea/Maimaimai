@@ -71,10 +71,16 @@ public class ItemManagerAction extends ActionSupport{
 		Map session = actionContext.getSession();
 		String shopname = (String)session.get("shopname");
 		itemlist = itemdao.findByName(shopname);
+		
 		return "list";
 	}
 	
 	public String show() {
+		String idd = id.toString();
+		item = itemdao.getItemById(idd);
+		return "show";
+	}
+	public String show2() {
 		String idd = id.toString();
 		item = itemdao.getItemById(idd);
 		return "show";

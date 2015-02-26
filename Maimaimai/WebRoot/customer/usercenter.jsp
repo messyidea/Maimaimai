@@ -48,12 +48,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </ul>
     </div>
     <div class="span7">
-    	<s:iterator value="orderlist" var="l1">
+    	<s:iterator value="orderlist" var="l1" status="sta">
 				<li class="span4">
 					<div class="thumbnail">
 						<!--  <img alt="300x200" src="/Maimaimai/itemimg/<s:property value="#l1.itemname" />.jpg" /> -->
 						<div class="caption">
-							商品名：<h5><s:property value="#l1.itemid" /> <h5>
+							商品名：<h5><s:property value="itemnames[#sta.index]" /> <h5>
 							时间：<h5><s:property value="#l1.buytime" /> <h5>
 							数量：<h5><s:property value="#l1.num" /> <h5>
 							订单备注：<h5><s:property value="#l1.orderdesc" /> <h5>

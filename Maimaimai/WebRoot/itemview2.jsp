@@ -22,13 +22,38 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<img alt="140x140" src="a.jpg" />
 		</div>
 		<div class="span6">
+			<form class="form-inline" action="Orderbuy.action">
+				<s:hidden name="id"/>
+					<fieldset>
+						<legend>确认下单</legend>
+						商品名：<h5><s:property value="item.name" /> <h5>
+						商品价格：<h5><s:property value="item.price" /> <h5>
+						商品介绍：<h5><s:property value="item.itemdesc" /> <h5>
+						商品评价：<h5><s:property value="item.grade" /> <h5>
+						商品库存：<h5><s:property value="item.num" /> <h5>
+						<label>商品数量</label>
+						<p>
+							<input type="text" name="num" />
+						</p>
+						<p>
+							<label>订单备注</label>
+						</p>
+						<p>
+							<input type="text" name="orderdesc" />
+						</p>
+						<p>
+							<button class="btn" type="submit">确认</button>
+						</p>
+					</fieldset>
+				</form>
+				<!--  
 			商品名：<h5><s:property value="item.name" /> <h5>
 			商品价格：<h5><s:property value="item.price" /> <h5>
 			商品介绍：<h5><s:property value="item.itemdesc" /> <h5>
 			商品评价：<h5><s:property value="item.grade" /> <h5>
 			所属类别：<h5><s:property value="item.itemcat" /> <h5>
-			<!--  <a class="btn" href="/Maimaimai/itemview2.jsp?id=<s:property value="item.id"/>">下单</a>-->
-			<a class="btn" href="<s:url action="Itemshow2" ><s:param name="id" value="item.id"/></s:url>">下单</a>
+			<a class="btn" href="<s:url action="Orderbuy" ><s:param name="id" value="item.id"/></s:url>">下单</a>
+			-->
 		</div>
 	</div>
 	<div class="row">

@@ -1,6 +1,7 @@
 package web.admin;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -30,8 +31,11 @@ public class OrderManagerAction extends ActionSupport{
 	private OrderDao orderdao= new OrderDaoImpl();
 	private ItemDao itemdao = new ItemDaoImpl();
 	List<Iorder> orderlist;
+	List<Item> itemlist;
+	List<String> itemnames;
 	
 	public String buy() {
+		//System.out.println("buy id == "+id);
 		//System.out.println("idididid == "+id);
 		ActionContext actionContext = ActionContext.getContext();
 		Map session = actionContext.getSession();
@@ -44,11 +48,12 @@ public class OrderManagerAction extends ActionSupport{
 		Item item = itemdao.getItemById(id.toString());
 		//System.out.println("itemid == " + id);
 		order.setBuytime(new Timestamp(System.currentTimeMillis()));
-		order.setNum(1);
+		order.setNum(num);
 		order.setStatus("1");
 		order.setShopname(item.getShopname());
 		//System.out.println("hehehe");
 		orderdao.saveItem(order);
+		order.setOrderdesc(orderdesc);
 		//System.out.println("xixixi");
 		return "success";
 	}
@@ -60,10 +65,15 @@ public class OrderManagerAction extends ActionSupport{
 		if(isOnline == null || isOnline.equals("")) return "not_login";
 		String uname = (String)session.get("username");
 		orderlist = orderdao.findByName(uname);
+		//itemlist = new ArrayList<Item>();
+		itemnames = new ArrayList<String>();
 		for(Iorder or:orderlist) {
-			System.out.println(or.getItemid());
-			System.out.println(or.getOrderdesc());
-			System.out.println(or.getBuytime());
+			Item item = itemdao.getItemById(or.getItemid().toString());
+			itemnames.add(item.getItemname());
+			//itemlist.add(item);
+			//System.out.println(or.getItemid());
+			//System.out.println(or.getOrderdesc());
+			//System.out.println(or.getBuytime());
 		}
 		return "list";
 	}
@@ -178,6 +188,22 @@ public class OrderManagerAction extends ActionSupport{
 
 	public void setItemdao(ItemDao itemdao) {
 		this.itemdao = itemdao;
+	}
+
+	public List<Item> getItemlist() {
+		return itemlist;
+	}
+
+	public void setItemlist(List<Item> itemlist) {
+		this.itemlist = itemlist;
+	}
+
+	public List<String> getItemnames() {
+		return itemnames;
+	}
+
+	public void setItemnames(List<String> itemnames) {
+		this.itemnames = itemnames;
 	}
 	
 	

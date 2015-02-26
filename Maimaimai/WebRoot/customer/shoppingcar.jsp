@@ -53,11 +53,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="thumbnail">
 						<img alt="300x200" src="/Maimaimai/itemimg/<s:property value="#l1.itemname" />.jpg" />
 						<div class="caption">
-							商品名：<h5><s:property value="#l1.id" /> <h5>
+							商品名：<h5><s:property value="#l1.itemname" /> <h5>
 							商品价格：<h5><s:property value="#l1.price" /> <h5>
 							商品介绍：<h5><s:property value="#l1.itemdesc" /> <h5>
 							商品评价：<h5><s:property value="#l1.grade" /> <h5>
-							商品类别：<h5><s:property value="#l1.itemcat" /> <h5>
+							<!--  商品类别：<h5><s:property value="#l1.itemcat" /> <h5>-->
 							<p>
 								<a class="btn btn-primary" >增加数量</a> 
 							</p>
