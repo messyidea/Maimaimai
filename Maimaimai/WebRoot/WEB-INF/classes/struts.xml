@@ -43,7 +43,7 @@
               <result name="list">/admin/showshops.jsp</result>
         </action>
         <action name="Itemadd" class="web.admin.ItemManagerAction" method="add">
-              <result name="add" type="redirect">/seller/Itemlist.action</result>
+              <result name="add" type="redirect">/seller/additempic.jsp?id=${id}</result>
         </action>
         <action name="Itemlist" class="web.admin.ItemManagerAction" method="list">
               <result name="list">/seller/itemmanagement.jsp</result>
@@ -73,6 +73,9 @@
         </action>
         <action name="Orderlist" class="web.admin.OrderManagerAction" method="list">
               <result name="list">/customer/usercenter.jsp</result>
+        </action>
+        <action name="updateItemimg" class="web.admin.ItemManagerAction" method="updateimg">
+              <result name="img" type="redirect">/seller/Itemlist.action</result>
         </action>
         
 	</package>

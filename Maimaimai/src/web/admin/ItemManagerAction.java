@@ -1,7 +1,12 @@
 package web.admin;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.struts2.ServletActionContext;
 
 import model.Item;
 import model.Shopcar;
@@ -39,7 +44,7 @@ public class ItemManagerAction extends ActionSupport{
 	private Item item;
 	
 	private Shopcar shopcar;
-	
+	private File itemimg;
 	private ShopcarDao shopcardao= new ShopcarDaoImpl();
 	
 	public String add() {
@@ -55,6 +60,9 @@ public class ItemManagerAction extends ActionSupport{
 		item.setShopname(shopname);
 		item.setItemcat(itemcat);
 		itemdao.saveItem(item);
+		//System.out.println("itemid = "+item.getId());
+		id = item.getId();
+		session.put("itemid", id);
 		return "add";
 	}
 	
@@ -72,7 +80,23 @@ public class ItemManagerAction extends ActionSupport{
 		return "show";
 	}
 	
-	
+	public String updateimg() throws IOException{
+		//System.out.println("id ==" + id);
+		ActionContext actionContext = ActionContext.getContext();
+		Map session = actionContext.getSession();
+		id = (Integer)session.get("itemid");
+		item = itemdao.getItemById(id.toString());
+		itemname = item.getItemname();
+		System.out.println("itemname == "+itemname);
+		
+		String realPath = ServletActionContext.getServletContext().getRealPath("/itemimg");
+		File saveFile = new File(new File(realPath),itemname + ".jpg");
+		if(!saveFile.getParentFile().exists()) {
+			saveFile.getParentFile().mkdirs();
+		}
+		FileUtils.copyFile(itemimg, saveFile);
+		return "img";
+	}
 	
 	public String addtoshopcar() {
 		ActionContext actionContext = ActionContext.getContext();
@@ -192,6 +216,14 @@ public class ItemManagerAction extends ActionSupport{
 
 	public void setItemcat(Integer itemcat) {
 		this.itemcat = itemcat;
+	}
+
+	public File getItemimg() {
+		return itemimg;
+	}
+
+	public void setItemimg(File itemimg) {
+		this.itemimg = itemimg;
 	}
 	
 	
