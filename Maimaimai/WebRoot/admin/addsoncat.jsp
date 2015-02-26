@@ -25,7 +25,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li><a href="Shoplist.action">店铺管理</a></li>
 					<li class="active"><a href="Catlist.action">类别管理</a></li>
 
-					<li><a href="#">帮助</a></li>
 				</ul>
 			</div>
 			<div class="span7">
@@ -58,8 +57,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        -->
 			</div>
 			<div class="span3 accordion-group well">
-				<img class="accordion-group" alt="140x140" width="140" height="140"
-					src="/Maimaimai/common/img/pic.jpg" class="img-circle" />
+				<img class="accordion-group" alt="140x140" width="140" height="140" src="<%
+      String haveimg = (String)session.getAttribute("haveimg");
+      	if(haveimg.equals("0")){
+      		out.print("/Maimaimai/common/img/pic.jpg");
+      	} else {
+      		String local = "/Maimaimai/headimg/" + (String)session.getAttribute("username") + ".jpg";
+      		out.print(local);
+      	} 
+      %>" class="img-circle" />
 				<div>
 					<p>
 						<br> <span class="label">用户名：${username }</span>

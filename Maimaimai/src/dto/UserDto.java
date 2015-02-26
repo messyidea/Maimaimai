@@ -15,6 +15,7 @@ public class UserDto extends User{
 		dto.setSex(user.getSex());
 		dto.setUserdesc(user.getUserdesc());
 		dto.setUsername(user.getUsername());
+		dto.setHaveimg(user.getHaveimg());
 		//dto.setGradeName(GradeInstance.getInstance().getByKey(user.getGrade()));
 	}
 	

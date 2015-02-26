@@ -24,43 +24,50 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="active"><a href="#">用户管理</a></li>
 					<li><a href="Shoplist.action">店铺管理</a></li>
 					<li><a href="Catlist.action">类别管理</a></li>
-					<li><a href="#">帮助</a></li>
 				</ul>
 			</div>
 			<div class="span7">
+				<s:iterator value="dtolist" var="l1">
+				<li class="span4">
+					<div class="thumbnail">
+						<img alt="300x200" src="<s:if test="#l1.haveimg == '0'.toString()">/Maimaimai/common/img/pic.jpg</s:if><s:else>/Maimaimai/headimg/<s:property value="#l1.username" />.jpg</s:else>" />
+						<div class="caption">
+							<h5>
+								用户名:<s:property value="#l1.username" />
+							</h5>
+							<h5>
+								个性签名:<s:property value="#l1.userdesc" />
+							</h5>
+							<p>
+								<a class="btn btn-primary" >删除用户</a> 
+			
+							</p>
+						</div>
+					</div>
+				</li>
+			</s:iterator>
+			<!--  
 			<table width="80%" border="1" align="center" class="table table-bordered">
 				<s:iterator value="dtolist">
 					<tr align="center">
 						<td><s:property value="username" /></td>
 						<td><s:property value="grade" /></td>
-						<!-- 
-						<td><a
-							href="<s:url action="Useredit" ><s:param name="username" value="username"/></s:url>">
-								编辑 </a></td>
-						<td><a
-							href="<s:url action="Userdel" ><s:param name="username" value="username"/></s:url>">
-								删除 </a></td>
-						 -->
 					</tr>
 				</s:iterator>
-		</table>
-				<!-- 
-      <div class="hero-unit">
-        <h1>
-          Hello, world!
-        </h1>
-        <p>
-          这是一个可视化布局模板, 你可以点击模板里的文字进行修改, 也可以通过点击弹出的编辑框进行富文本修改. 拖动区块能实现排序.
-        </p>
-        <p>
-          <a class="btn btn-primary btn-large" href="#">参看更多 ?</a>
-        </p>
-      </div>
-       -->
+			</table>
+			-->
+				
 			</div>
 			<div class="span3 accordion-group well">
-				<img class="accordion-group" alt="140x140" width="140" height="140"
-					src="/Maimaimai/common/img/pic.jpg" class="img-circle" />
+				<img class="accordion-group" alt="140x140" width="140" height="140" src="<%
+      String haveimg = (String)session.getAttribute("haveimg");
+      	if(haveimg.equals("0")){
+      		out.print("/Maimaimai/common/img/pic.jpg");
+      	} else {
+      		String local = "/Maimaimai/headimg/" + (String)session.getAttribute("username") + ".jpg";
+      		out.print(local);
+      	} 
+      %>" class="img-circle" />
 				<div>
 					<p>
 						<br> <span class="label">用户名：${username }</span>

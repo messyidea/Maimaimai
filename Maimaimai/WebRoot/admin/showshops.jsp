@@ -25,10 +25,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="active"><a href="Shoplist.action">店铺管理</a></li>
 					<li ><a href="Catlist.action">类别管理</a></li>
 
-					<li><a href="#">帮助</a></li>
 				</ul>
 			</div>
 			<div class="span7">
+				<!--  
 				<s:iterator value="shoplist" var="l1" status="sta">
 					店铺名：<h5><s:property value="#l1.shopname" /> <h5>
 					店铺主人：<h5><s:property value="#l1.username" /> <h5>
@@ -37,6 +37,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<legend></legend>
 				</s:iterator>
 				<br>
+				-->
+				
+				<s:iterator value="shoplist" var="l1">
+				<li class="span4">
+					<div class="thumbnail">
+						<!-- <img alt="300x200" src="<s:if test="#l1.haveimg='0'">/Maimaimai/common/img/pic.jpg</s:if><s:else>hehe.pic</s:else>" /> -->
+						<div class="caption">
+							店铺名：<h5><s:property value="#l1.shopname" /> <h5>
+							店铺主人：<h5><s:property value="#l1.username" /> <h5>
+							店铺介绍：<h5><s:property value="#l1.shopdesc" /> <h5>
+							店铺等级：<h5><s:property value="#l1.grade" /> <h5>
+							<p>
+								<a class="btn btn-primary" >删除店铺</a> 
+							</p>
+						</div>
+					</div>
+				</li>
+			</s:iterator>
 					
 			
 				<!-- 
@@ -54,8 +72,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        -->
 			</div>
 			<div class="span3 accordion-group well">
-				<img class="accordion-group" alt="140x140" width="140" height="140"
-					src="/Maimaimai/common/img/pic.jpg" class="img-circle" />
+				<img class="accordion-group" alt="140x140" width="140" height="140" src="<%
+      String haveimg = (String)session.getAttribute("haveimg");
+      	if(haveimg.equals("0")){
+      		out.print("/Maimaimai/common/img/pic.jpg");
+      	} else {
+      		String local = "/Maimaimai/headimg/" + (String)session.getAttribute("username") + ".jpg";
+      		out.print(local);
+      	} 
+      %>" class="img-circle" />
 				<div>
 					<p>
 						<br> <span class="label">用户名：${username }</span>
