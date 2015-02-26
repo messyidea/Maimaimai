@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           卖家中心
         </li>
         <li>
-          <a href="/Maimaimai/customer/usercenter.jsp">订单管理</a>
+          <a href="Orderlist.action">订单管理</a>
         </li>
         <li>
           <a href="/Maimaimai/customer/shoppingcar.jsp">我的购物车</a>
@@ -44,9 +44,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <a href="/Maimaimai/customer/favoriteshop.jsp">我收藏的店铺</a>
         </li>
         <li class="divider">
-        </li>
-        <li>
-          <a href="#">帮助</a>
         </li>
       </ul>
     </div>

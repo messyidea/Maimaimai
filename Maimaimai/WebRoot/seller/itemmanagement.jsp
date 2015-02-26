@@ -28,6 +28,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</ul>
 			</div>
 			<div class="span7">
+			
+				<s:iterator value="itemlist" var="l1">
+				<li class="span4">
+					<div class="thumbnail">
+						<img alt="300x200" src="/Maimaimai/itemimg/<s:property value="#l1.itemname" />.jpg" />
+						<div class="caption">
+							商品名：<h5><s:property value="#l1.itemname" /> <h5>
+							商品价格：<h5><s:property value="#l1.price" /> <h5>
+							商品介绍：<h5><s:property value="#l1.itemdesc" /> <h5>
+							商品评价：<h5><s:property value="#l1.grade" /> <h5>
+							商品类别：<h5><s:property value="#l1.itemcat" /> <h5>
+							<p>
+								<a class="btn btn-primary" >增加库存</a> 
+							</p>
+						</div>
+					</div>
+				</li>
+			</s:iterator>
+			<!--  
 				<s:iterator value="itemlist" var="l1" status="sta">
 					商品名：<h5><s:property value="#l1.itemname" /> <h5>
 					商品价格：<h5><s:property value="#l1.price" /> <h5>
@@ -37,19 +56,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<legend></legend>
 				</s:iterator>
 				<br>
+			-->
 				 
       
        
 			</div>
 			<div class="span3 accordion-group well">
-				<img class="accordion-group" alt="140x140" width="140" height="140"
-					src="/Maimaimai/common/img/pic.jpg" class="img-circle" />
+				<img class="accordion-group" alt="140x140" width="140" height="140" src="<%
+      String haveimg = (String)session.getAttribute("haveimg");
+      	if(haveimg.equals("0")){
+      		out.print("/Maimaimai/common/img/pic.jpg");
+      	} else {
+      		String local = "/Maimaimai/headimg/" + (String)session.getAttribute("username") + ".jpg";
+      		out.print(local);
+      	}
+       %>" class="img-circle" />
 				<div>
 					<p>
-						<br> <span class="label">店铺名：${username }</span>
+						<br> <span class="label">店铺名：${shopname }</span>
 					</p>
 					<p>
-						<span class="label">店铺描述：${userdesc }</span>
+						<span class="label">店铺描述：${ishopdesc }</span>
 					</p>
 				</div>
 			</div>

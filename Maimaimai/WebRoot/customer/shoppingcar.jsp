@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           卖家中心
         </li>
         <li>
-          <a href="/Maimaimai/customer/usercenter.jsp">订单管理</a>
+          <a href="Orderlist.action">订单管理</a>
         </li>
         <li class="active">
           <a href="#">我的购物车</a>
@@ -45,12 +45,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </li>
         <li class="divider">
         </li>
-        <li>
-          <a href="#">帮助</a>
-        </li>
       </ul>
     </div>
     <div class="span7">
+    	<s:iterator value="itemlist" var="l1">
+				<li class="span4">
+					<div class="thumbnail">
+						<img alt="300x200" src="/Maimaimai/itemimg/<s:property value="#l1.itemname" />.jpg" />
+						<div class="caption">
+							商品名：<h5><s:property value="#l1.id" /> <h5>
+							商品价格：<h5><s:property value="#l1.price" /> <h5>
+							商品介绍：<h5><s:property value="#l1.itemdesc" /> <h5>
+							商品评价：<h5><s:property value="#l1.grade" /> <h5>
+							商品类别：<h5><s:property value="#l1.itemcat" /> <h5>
+							<p>
+								<a class="btn btn-primary" >增加数量</a> 
+							</p>
+						</div>
+					</div>
+				</li>
+			</s:iterator>
+    <!--  
       <s:iterator value="itemlist" var="l1" status="sta">
 					商品名：<h5><s:property value="#l1.id" /> <h5>
 					商品价格：<h5><s:property value="#l1.price" /> <h5>
@@ -60,6 +75,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<legend></legend>
 				</s:iterator>
 				<br>
+	-->
     </div>
     <div class="span3 accordion-group well">
       <img class="accordion-group" alt="140x140" width="140" height="140" src="<%

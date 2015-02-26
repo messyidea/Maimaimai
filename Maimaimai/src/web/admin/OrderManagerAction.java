@@ -5,11 +5,14 @@ import java.util.List;
 import java.util.Map;
 
 import model.Iorder;
+import model.Item;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
+import dao.ItemDao;
 import dao.OrderDao;
+import dao.impl.ItemDaoImpl;
 import dao.impl.OrderDaoImpl;
 
 public class OrderManagerAction extends ActionSupport{
@@ -25,10 +28,11 @@ public class OrderManagerAction extends ActionSupport{
 	private String useridea;
 	private Iorder order;
 	private OrderDao orderdao= new OrderDaoImpl();
-	
+	private ItemDao itemdao = new ItemDaoImpl();
 	List<Iorder> orderlist;
 	
 	public String buy() {
+		//System.out.println("idididid == "+id);
 		ActionContext actionContext = ActionContext.getContext();
 		Map session = actionContext.getSession();
 		String isOnline = (String)session.get("Login");
@@ -37,13 +41,15 @@ public class OrderManagerAction extends ActionSupport{
 		order = new Iorder();
 		order.setUsername(username);
 		order.setItemid(id);
+		Item item = itemdao.getItemById(id.toString());
+		//System.out.println("itemid == " + id);
 		order.setBuytime(new Timestamp(System.currentTimeMillis()));
 		order.setNum(1);
 		order.setStatus("1");
-		order.setShopname("ymc");
-		System.out.println("hehehe");
+		order.setShopname(item.getShopname());
+		//System.out.println("hehehe");
 		orderdao.saveItem(order);
-		System.out.println("xixixi");
+		//System.out.println("xixixi");
 		return "success";
 	}
 	
@@ -164,6 +170,14 @@ public class OrderManagerAction extends ActionSupport{
 
 	public void setOrder(Iorder order) {
 		this.order = order;
+	}
+
+	public ItemDao getItemdao() {
+		return itemdao;
+	}
+
+	public void setItemdao(ItemDao itemdao) {
+		this.itemdao = itemdao;
 	}
 	
 	

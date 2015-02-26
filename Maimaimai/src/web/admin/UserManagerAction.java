@@ -260,6 +260,9 @@ public class UserManagerAction extends ActionSupport{
 			session.put("userdesc", u.getUserdesc());
 			session.put("haveimg", u.getHaveimg());
 			session.put("shopname", u.getShopname());
+			Shop shop = shopdao.getShopByName(u.getShopname());
+			if(shop != null)
+				session.put("ishopdesc", shop.getShopdesc());
 			//session.put("type", u.getGrade());
 			return "success";
 		} else {
@@ -319,6 +322,7 @@ public class UserManagerAction extends ActionSupport{
 		shop.setShopdesc(shopdesc);
 		shop.setUsername(username);
 		shopdao.saveShop(shop);
+		session.put("ishopdesc", shopdesc);
 		return "success";
 		
 	}

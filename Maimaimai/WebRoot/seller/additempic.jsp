@@ -38,14 +38,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</center>		 
 			</div>
 			<div class="span3 accordion-group well">
-				<img class="accordion-group" alt="140x140" width="140" height="140"
-					src="/Maimaimai/common/img/pic.jpg" class="img-circle" />
+				<img class="accordion-group" alt="140x140" width="140" height="140" src="<%
+      String haveimg = (String)session.getAttribute("haveimg");
+      	if(haveimg.equals("0")){
+      		out.print("/Maimaimai/common/img/pic.jpg");
+      	} else {
+      		String local = "/Maimaimai/headimg/" + (String)session.getAttribute("username") + ".jpg";
+      		out.print(local);
+      	}
+       %>" class="img-circle" />
 				<div>
 					<p>
 						<br> <span class="label">µêÆÌÃû£º${shopname }</span>
 					</p>
 					<p>
-						<span class="label">µêÆÌÃèÊö£º${userdesc }</span>
+						<span class="label">µêÆÌÃèÊö£º${ishopdesc }</span>
 					</p>
 				</div>
 			</div>
