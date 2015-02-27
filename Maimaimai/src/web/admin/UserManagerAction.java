@@ -50,6 +50,7 @@ public class UserManagerAction extends ActionSupport{
 	private ShopcarDao shopcardao = new ShopcarDaoImpl();
 	List<Shopcar> shopcarlist;
 	List<Item> itemlist;
+
 	ItemDao itemdao = new ItemDaoImpl();
 	
 	
@@ -84,7 +85,22 @@ public class UserManagerAction extends ActionSupport{
 		dto.convert(userDao.getAllUser(User.class), dtolist);
 		return "list";
 	}
+	
+	public String shopdel() {
+		Shop shop = shopdao.getShopByName(shopname);
+		username = shop.getUsername();
+		user = userDao.getUserByName(username);
+		user.setGrade("1");
+		userDao.update(user);
+		shopdao.deleteShopByName(shopname);
+		return "success";
+	}
 
+	public String del() {
+		//user = userDao.getUserByName(username);
+		userDao.deleteUserByName(username);
+		return "success";
+	}
 	public List<User> getUsers() {
 		return users;
 	}
@@ -273,13 +289,13 @@ public class UserManagerAction extends ActionSupport{
 			Map session = actionContext.getSession();
 			session.put("Login", u.getGrade());
 			session.put("username", username);
-			System.out.println("xixixixi");
+			//System.out.println("xixixixi");
 			session.put("userdesc", u.getUserdesc());
 			session.put("haveimg", u.getHaveimg());
 			session.put("shopname", u.getShopname());
-			System.out.println("xixixixi");
+			//System.out.println("xixixixi");
 			Shop shop = shopdao.getShopByUsername(u.getUsername());
-			System.out.println("xixixixi");
+			//System.out.println("xixixixi");
 			if(shop != null)
 				session.put("ishopdesc", shop.getShopdesc());
 			//session.put("type", u.getGrade());

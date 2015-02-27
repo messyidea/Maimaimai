@@ -49,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<s:iterator value="itemlist" var="l3">
 				<li class="span4">
 					<div class="thumbnail">
-						<img alt="300x200" src="a.jpg" />
+						<img alt="300x200" src="/Maimaimai/itemimg/<s:property value="#l3.itemname" />.jpg" />
 						<div class="caption">
 							<h3>
 								<s:property value="#l3.itemname" />

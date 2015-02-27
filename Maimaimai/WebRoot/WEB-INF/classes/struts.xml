@@ -99,6 +99,12 @@
         <action name="kucunadd" class="web.admin.ItemManagerAction" method="kucunadd">
               <result name="success" type="redirect">/seller/Itemlist.action</result>
         </action>
+        <action name="Userdel" class="web.admin.UserManagerAction" method="del">
+              <result name="success" type="redirect">/admin/showUser.action</result>
+        </action>
+        <action name="Shopdel" class="web.admin.UserManagerAction" method="shopdel">
+              <result name="success" type="redirect">/admin/Shoplist.action</result>
+        </action>
 	</package>
 
 </struts>    

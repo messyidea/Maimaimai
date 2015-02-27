@@ -41,8 +41,9 @@ public class ShopDaoImpl extends BaseDaoImpl implements ShopDao {
 	@Override
 	public Shop getShopByName(String name) {
 		// TODO Auto-generated method stub
-		Shop shop = (Shop)super.getObject(Shop.class, name);
-		return shop;
+		List<Shop> list = super.search("from Shop where shopname = '"+name+"'");
+		if(list.size() == 0) return null; 
+		return list.get(0);
 	}
 
 	@Override

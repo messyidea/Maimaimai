@@ -87,7 +87,7 @@
 									 %>
 									</ul></li>
 								<li><a href="#">联系客服</a></li>
-								<li class="divider-vertical">a</li>
+								<li class="divider-vertical"></li>
 								<li><a href="#">网站地图</a></li>
 							</ul>
 						</div>

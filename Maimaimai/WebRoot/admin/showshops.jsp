@@ -49,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							µÍ∆ÃΩÈ…‹£∫<h5><s:property value="#l1.shopdesc" /> <h5>
 							µÍ∆Ãµ»º∂£∫<h5><s:property value="#l1.grade" /> <h5>
 							<p>
-								<a class="btn btn-primary" >…æ≥˝µÍ∆Ã</a> 
+								<a class="btn btn-primary" href="<s:url action="Shopdel" ><s:param name="shopname" value="#l1.username"/></s:url>">…æ≥˝µÍ∆Ã</a> 
 							</p>
 						</div>
 					</div>

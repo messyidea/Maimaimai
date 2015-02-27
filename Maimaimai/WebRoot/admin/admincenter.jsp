@@ -39,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								个性签名:<s:property value="#l1.userdesc" />
 							</h5>
 							<p>
-								<a class="btn btn-primary" >删除用户</a> 
+								<a class="btn btn-primary" href="<s:url action="Userdel" ><s:param name="username" value="#l1.username"/></s:url>" >删除用户</a> 
 			
 							</p>
 						</div>

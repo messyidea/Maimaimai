@@ -56,6 +56,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							商品名：<h5><s:property value="itemnames[#sta.index]" /> <h5>
 							时间：<h5><s:property value="#l1.buytime" /> <h5>
 							数量：<h5><s:property value="#l1.num" /> <h5>
+							备注：<h5><s:property value="#l1.orderdesc" /> <h5>
 							<!--  订单备注：<h5><s:property value="#l1.orderdesc" /> <h5>
 							status：<h5><s:property value="#l1.status" /> <h5> -->
 							<p>
