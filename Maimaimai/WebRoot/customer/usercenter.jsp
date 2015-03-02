@@ -38,11 +38,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           我的关注
         </li>
         <li>
-          <a href="/Maimaimai/customer/favorite.jsp">我收藏的宝贝</a>
+          <a href="Favoriteslist.action">我收藏的宝贝</a>
+        </li>
+        <li class="nav-header">
+          统计
         </li>
         <li>
-          <a href="/Maimaimai/customer/favoriteshop.jsp">我收藏的店铺</a>
+          <a href="showcount.action">信息统计</a>
         </li>
+
         <li class="divider">
         </li>
       </ul>

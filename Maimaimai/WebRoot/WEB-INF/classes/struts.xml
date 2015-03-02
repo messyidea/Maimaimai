@@ -66,6 +66,9 @@
         	  <result name="not_login" type="redirect">/index.action</result>
               <result name="success">/customer/shoppingcar.jsp</result>
         </action>
+        <action name="Shopcardel" class="web.admin.UserManagerAction" method="shopcardel">
+              <result name="success" type="redirect">/customer/Shopcarlist.action</result>
+        </action>
         <action name="Itemcatget" class="web.admin.CatManagerAction" method="catget">
               <result name="success">/seller/additems.jsp</result>
         </action>
@@ -104,6 +107,38 @@
         </action>
         <action name="Shopdel" class="web.admin.UserManagerAction" method="shopdel">
               <result name="success" type="redirect">/admin/Shoplist.action</result>
+        </action>
+        <action name="Itemdel" class="web.admin.ItemManagerAction" method="delitem">
+              <result name="success" type="redirect">/seller/Itemlist.action</result>
+        </action>
+        <action name="Favoritesadd" class="web.admin.ItemManagerAction" method="addtofavorites">
+              <result name="not_login" type="redirect">/index.action</result>
+              <result name="success" type="redirect">/customer/Favoriteslist.action</result>
+        </action>
+        <action name="Favoriteslist" class="web.admin.UserManagerAction" method="favoriteslist">
+        	  <result name="not_login" type="redirect">/index.action</result>
+              <result name="success">/customer/favorite.jsp</result>
+        </action>
+        <action name="Favoritesdel" class="web.admin.UserManagerAction" method="favoritesdel">
+              <result name="success" type="redirect">/customer/Favoriteslist.action</result>
+        </action>
+        <action name="Shopview" class="web.admin.ItemManagerAction" method="shoplist">
+              <result name="list">/shopview.jsp</result>
+        </action>
+        <action name="Itemsearch" class="web.admin.ItemManagerAction" method="search">
+              <result name="list">/search.jsp</result>
+        </action>
+        <action name="showcount" class="web.admin.UserManagerAction" method="showcount">
+              <result name="success" type="redirect">/customer/showcount.jsp</result>
+        </action>
+        <action name="showcount2" class="web.admin.UserManagerAction" method="showcount2">
+              <result name="success" type="redirect">/seller/showcount.jsp</result>
+        </action>
+        <action name="setitemid" class="web.admin.ItemManagerAction" method="idset">
+              <result name="success">/seller/changenumofitem.jsp</result>
+        </action>
+        <action name="kucunchange" class="web.admin.ItemManagerAction" method="kucunchange">
+              <result name="success" type="redirect">/seller/Itemlist.action</result>
         </action>
 	</package>
 

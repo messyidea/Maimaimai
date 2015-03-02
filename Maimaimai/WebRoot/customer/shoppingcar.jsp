@@ -38,10 +38,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           我的关注
         </li>
         <li>
-          <a href="/Maimaimai/customer/favorite.jsp">我收藏的宝贝</a>
+          <a href="Favoriteslist.action">我收藏的宝贝</a>
+        </li>
+        
+        <li class="nav-header">
+          统计
         </li>
         <li>
-          <a href="/Maimaimai/customer/favoriteshop.jsp">我收藏的店铺</a>
+          <a href="showcount.action">信息统计</a>
         </li>
         <li class="divider">
         </li>
@@ -59,7 +63,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							商品评价：<h5><s:property value="#l1.grade" /> <h5>
 							<!--  商品类别：<h5><s:property value="#l1.itemcat" /> <h5>-->
 							<p>
-								<a class="btn btn-primary" href="<s:url action="Itemshow2" ><s:param name="id" value="#l1.id"/></s:url>">下单</a> 
+								<a class="btn btn-primary" href="<s:url action="Itemshow2" ><s:param name="id" value="#l1.id"/></s:url>">下单</a>
+								<a class="btn btn-primary" href="<s:url action="Shopcardel" ><s:param name="id" value="#l1.id"/></s:url>">删除</a> 
 							</p>
 						</div>
 					</div>

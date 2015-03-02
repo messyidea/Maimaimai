@@ -57,7 +57,14 @@ public class IndexManagerAction extends ActionSupport{
 				System.out.println(rs.getFa());
 			}
 		}*/
-		itemlist = itemdao.getAllItem(Item.class);
+		List<Item> tp = itemdao.getAllItem(Item.class);
+		itemlist = new ArrayList<Item>();
+		for(Item it : tp) {
+			if(it.getNum() != 0) {
+				itemlist.add(it);
+			}
+		}
+		//itemlist = itemdao.getAllItem(Item.class);
 		return "list";
 	}
 	public String show() {

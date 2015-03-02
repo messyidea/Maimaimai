@@ -9,6 +9,7 @@ import java.util.Map;
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
+import model.Favorites;
 import model.Iorder;
 import model.Item;
 import model.Shopcar;
@@ -17,9 +18,11 @@ import model.Soncat;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
+import dao.FavoritesDao;
 import dao.ItemDao;
 import dao.OrderDao;
 import dao.ShopcarDao;
+import dao.impl.FavoritesDaoImpl;
 import dao.impl.ItemDaoImpl;
 import dao.impl.OrderDaoImpl;
 import dao.impl.ShopcarDaoImpl;
@@ -46,16 +49,55 @@ public class ItemManagerAction extends ActionSupport{
 	private ItemDao itemdao = new ItemDaoImpl();
 	
 	private Item item;
-	
+	private String searchinfo;
 	private Shopcar shopcar;
 	private File itemimg;
 	private ShopcarDao shopcardao= new ShopcarDaoImpl();
 	private OrderDao orderdao = new OrderDaoImpl();
+	private FavoritesDao favoritesdao = new FavoritesDaoImpl();
+	Integer kucun;
+	
+	
+	public Integer getKucun() {
+		return kucun;
+	}
+
+	public void setKucun(Integer kucun) {
+		this.kucun = kucun;
+	}
+
+	
+	public String idset() {
+		ActionContext actionContext = ActionContext.getContext();
+		Map session = actionContext.getSession();
+		session.put("itemid", id);
+		return "success";
+	}
 	List<Iorder> orderlist;
 	public String kucunadd() {
 		item = itemdao.getItemById(id.toString());
 		Integer nn = item.getNum();
 		nn += 1;
+		item.setNum(nn);
+		itemdao.update(item);
+		return "success";
+	}
+	
+	public String kucunchange() {
+		ActionContext actionContext = ActionContext.getContext();
+		Map session = actionContext.getSession();
+		Integer itemid = (Integer)session.get("itemid");
+		item = itemdao.getItemById(itemid.toString());
+		
+		item.setNum(kucun);
+		itemdao.update(item);
+		return "success";
+	}
+	
+	public String delitem() {
+		item = itemdao.getItemById(id.toString());
+		Integer nn = item.getNum();
+		nn = 0;
 		item.setNum(nn);
 		itemdao.update(item);
 		return "success";
@@ -84,8 +126,43 @@ public class ItemManagerAction extends ActionSupport{
 		ActionContext actionContext = ActionContext.getContext();
 		Map session = actionContext.getSession();
 		String shopname = (String)session.get("shopname");
-		itemlist = itemdao.findByName(shopname);
+		//itemlist = itemdao.findByName(shopname);
+		List<Item> tp = itemdao.findByName(shopname);
+		itemlist = new ArrayList<Item>();
+		for(Item it : tp) {
+			if(it.getNum() != 0) {
+				itemlist.add(it);
+			}
+		}
 		
+		return "list";
+	}
+	
+	public String shoplist() {
+		//itemlist = itemdao.findByName(shopname);
+		List<Item> tp = itemdao.findByName(shopname);
+		itemlist = new ArrayList<Item>();
+		for(Item it : tp) {
+			if(it.getNum() != 0) {
+				itemlist.add(it);
+			}
+		}
+		ActionContext actionContext = ActionContext.getContext();
+		Map session = actionContext.getSession();
+		session.put("nowshop", shopname);
+		return "list";
+	}
+	
+	public String search() {
+		//itemlist = itemdao.findByName(shopname);
+		System.out.println(searchinfo);
+		List<Item> tp = itemdao.findByNamelike(searchinfo);
+		itemlist = new ArrayList<Item>();
+		for(Item it : tp) {
+			if(it.getNum() != 0) {
+				itemlist.add(it);
+			}
+		}
 		return "list";
 	}
 	
@@ -115,10 +192,11 @@ public class ItemManagerAction extends ActionSupport{
 		id = (Integer)session.get("itemid");
 		item = itemdao.getItemById(id.toString());
 		itemname = item.getItemname();
+		String idd = id.toString();
 		System.out.println("itemname == "+itemname);
 		
 		String realPath = ServletActionContext.getServletContext().getRealPath("/itemimg");
-		File saveFile = new File(new File(realPath),itemname + ".jpg");
+		File saveFile = new File(new File(realPath),idd + ".jpg");
 		if(!saveFile.getParentFile().exists()) {
 			saveFile.getParentFile().mkdirs();
 		}
@@ -138,6 +216,21 @@ public class ItemManagerAction extends ActionSupport{
 		//System.out.println(username + "  hehe");
 		shopcardao.saveShopcar(shopcar);
 		//System.out.println(username + "  xixi");
+		
+		return "success";
+	}
+	
+	public String addtofavorites() {
+		ActionContext actionContext = ActionContext.getContext();
+		Map session = actionContext.getSession();
+		String isOnline = (String)session.get("Login");
+		if(isOnline == null || isOnline.equals("")) return "not_login";
+		String username = (String)session.get("username");
+		//shopcar = new Shopcar();
+		Favorites fav = new Favorites();
+		fav.setItemid(id);
+		fav.setUsername(username);
+		favoritesdao.saveFavorites(fav);
 		
 		return "success";
 	}
@@ -269,7 +362,21 @@ public class ItemManagerAction extends ActionSupport{
 	public void setOrderlist(List<Iorder> orderlist) {
 		this.orderlist = orderlist;
 	}
+
+	public FavoritesDao getFavoritesdao() {
+		return favoritesdao;
+	}
+
+	public void setFavoritesdao(FavoritesDao favoritesdao) {
+		this.favoritesdao = favoritesdao;
+	}
 	
-	
+	public String getSearchinfo() {
+		return searchinfo;
+	}
+
+	public void setSearchinfo(String searchinfo) {
+		this.searchinfo = searchinfo;
+	}
 	
 }

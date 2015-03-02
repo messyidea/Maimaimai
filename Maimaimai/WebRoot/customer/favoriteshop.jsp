@@ -43,6 +43,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <li class="active">
           <a href="#">我收藏的店铺</a>
         </li>
+        
+        <li class="nav-header">
+          统计
+        </li>
+        <li>
+          <a href="showcount.action">信息统计</a>
+        </li>
         <li class="divider">
         </li>
 

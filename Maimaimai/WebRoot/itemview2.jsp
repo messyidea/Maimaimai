@@ -19,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="container">
 	<div class="row">
 		<div class="span6">
-			<img alt="140x140" src="/Maimaimai/itemimg/<s:property value="item.itemname" />.jpg" />
+			<img alt="140x140" src="/Maimaimai/itemimg/<s:property value="item.id" />.jpg" />
 		</div>
 		<div class="span6">
 			<form class="form-inline" action="Orderbuy.action">

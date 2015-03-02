@@ -12,7 +12,6 @@ public interface OrderDao {
 	
 	public List<Iorder> findByName(String name);
 	
-	
 	public void deleteOrderByName(String name);
 	
 	public void update(Iorder order);

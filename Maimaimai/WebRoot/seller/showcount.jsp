@@ -22,46 +22,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<ul class="nav nav-list well">
 					<li class="nav-header">管理中心</li>
 					<li ><a href="Orderlist2.action">订单管理</a></li>
-					<li class="active"><a href="/Maimaimai/seller/additems.jsp">添加物品</a></li>
+					<li><a href="Itemcatget.action">添加物品</a></li>
 					<li><a href="Itemlist.action">物品管理</a></li>
-					<li><a href="showcount2.action">信息统计</a></li>
+					<li class="active"><a href="showcount2.action">信息统计</a></li>
 
 				</ul>
 			</div>
 			<div class="span7">
-				<form class="form-inline" action="Itemadd.action">
-					<fieldset>
-						<label>名称</label>
-						<p>
-							<input type="text" name="itemname" />
-						</p>
-						<label>数量</label>
-						<p>
-							<input type="text" name="num" />
-						</p>
-						<label>价格</label>
-						<p>
-							<input type="text" name="price" />
-						</p>
-						<label>所属类别</label>
-						<p>
-						<select name="itemcat">
-						<s:iterator value="soncatlist2">
-							<option value ="<s:property value="id" />">
-								<s:property value="name" />
-							</option>
-						</s:iterator>
-						</select>
-						</p>
-						<label>其它信息</label>
-						<p>
-							<textarea rows="3" name="itemdesc"></textarea>
-						</p>	
-						<p>
-							<button class="btn" type="submit">下一步</button>
-						</p>
-					</fieldset>
-				</form>			 
+				<legend>信息统计</legend>
+		    	<h1>我总共接了${numoforder }订单</h1>
+		    	<h1>我总共卖了${numofitem }件宝贝</h1>
+				 
+       
 			</div>
 			<div class="span3 accordion-group well">
 				<img class="accordion-group" alt="140x140" width="140" height="140" src="<%

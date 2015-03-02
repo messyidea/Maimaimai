@@ -59,6 +59,13 @@ public class ItemDaoImpl  extends BaseDaoImpl implements ItemDao{
 		List<Item> list = super.search("from Item where id = "+id+"");
 		return list.get(0);
 	}
+
+	@Override
+	public List<Item> findByNamelike(String name) {
+		// TODO Auto-generated method stub
+		List<Item> list = super.search("from Item where itemname like '%"+name+"%'");
+		return list;
+	}
 	
 	
 

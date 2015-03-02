@@ -7,7 +7,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>卖家中心</title>
+<title>物品管理</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Bootstrap -->
 <link rel="stylesheet"
@@ -21,47 +21,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="span2 accordion-group">
 				<ul class="nav nav-list well">
 					<li class="nav-header">管理中心</li>
-					<li ><a href="Orderlist2.action">订单管理</a></li>
-					<li class="active"><a href="/Maimaimai/seller/additems.jsp">添加物品</a></li>
-					<li><a href="Itemlist.action">物品管理</a></li>
+					<li><a href="Orderlist2.action">订单管理</a></li>
+					<li><a href="/Maimaimai/seller/additems.jsp">添加物品</a></li>
+					<li class="active"><a href="Itemlist.action">物品管理</a></li>
 					<li><a href="showcount2.action">信息统计</a></li>
 
 				</ul>
 			</div>
 			<div class="span7">
-				<form class="form-inline" action="Itemadd.action">
+			
+				<form class="form-inline" action="kucunchange.action">
 					<fieldset>
-						<label>名称</label>
+						<legend>修改商品库存</legend>
+						<label>修改库存为</label>
 						<p>
-							<input type="text" name="itemname" />
+							<!-- <input type="text" name="userdesc"></input> -->
+							<input type="text" name="kucun"/>
 						</p>
-						<label>数量</label>
 						<p>
-							<input type="text" name="num" />
-						</p>
-						<label>价格</label>
-						<p>
-							<input type="text" name="price" />
-						</p>
-						<label>所属类别</label>
-						<p>
-						<select name="itemcat">
-						<s:iterator value="soncatlist2">
-							<option value ="<s:property value="id" />">
-								<s:property value="name" />
-							</option>
-						</s:iterator>
-						</select>
-						</p>
-						<label>其它信息</label>
-						<p>
-							<textarea rows="3" name="itemdesc"></textarea>
-						</p>	
-						<p>
-							<button class="btn" type="submit">下一步</button>
+							<button class="btn" type="submit">确定</button>
 						</p>
 					</fieldset>
-				</form>			 
+				</form>
+			<!--  
+				<s:iterator value="itemlist" var="l1" status="sta">
+					商品名：<h5><s:property value="#l1.itemname" /> <h5>
+					商品价格：<h5><s:property value="#l1.price" /> <h5>
+					商品介绍：<h5><s:property value="#l1.itemdesc" /> <h5>
+					商品评价：<h5><s:property value="#l1.grade" /> <h5>
+					商品类别：<h5><s:property value="#l1.itemcat" /> <h5>
+					<legend></legend>
+				</s:iterator>
+				<br>
+			-->
+				 
+      
+       
 			</div>
 			<div class="span3 accordion-group well">
 				<img class="accordion-group" alt="140x140" width="140" height="140" src="<%

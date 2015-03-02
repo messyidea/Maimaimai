@@ -24,6 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="active"><a href="Orderlist2.action">订单管理</a></li>
 					<li><a href="Itemcatget.action">添加物品</a></li>
 					<li><a href="Itemlist.action">物品管理</a></li>
+					<li><a href="showcount2.action">信息统计</a></li>
 
 				</ul>
 			</div>

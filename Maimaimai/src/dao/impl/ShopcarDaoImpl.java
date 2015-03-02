@@ -28,9 +28,9 @@ public class ShopcarDaoImpl extends BaseDaoImpl implements ShopcarDao {
 	}
 
 	@Override
-	public void deleteShopcarByName(String name) {
+	public void deleteShopcarById(Integer id) {
 		// TODO Auto-generated method stub
-		super.delete(Shopcar.class, name);
+		super.delete(Shopcar.class, id);
 	}
 
 	@Override
@@ -44,6 +44,14 @@ public class ShopcarDaoImpl extends BaseDaoImpl implements ShopcarDao {
 		// TODO Auto-generated method stub
 		Shopcar shopcar = (Shopcar)super.getObject(Shopcar.class, id);
 		return shopcar;
+	}
+
+	@Override
+	public Shopcar getShopcarBy2(String username, String itemid) {
+		// TODO Auto-generated method stub
+		List<Shopcar> list = super.search("from Shopcar where username = '"+username+"' and itemid = " + itemid);
+		if(list.size() == 0) return null;
+		return list.get(0);
 	}
 
 	

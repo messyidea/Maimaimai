@@ -44,7 +44,8 @@
 				<value>model/Shop.hbm.xml</value>
 				<value>model/Item.hbm.xml</value>
 				<value>model/Shopcar.hbm.xml</value>
-				<value>model/Iorder.hbm.xml</value></list>
+				<value>model/Iorder.hbm.xml</value>
+				<value>model/Favorites.hbm.xml</value></list>
 		</property>
 		
 
@@ -92,6 +93,11 @@
 	   </property>  
 	</bean> 
 	
+	<bean id="favoritesdao" class="dao.impl.FavoritesDaoImpl">  
+	   <property name="sessionFactory">
+	    <ref bean="sessionFactory" />
+	   </property>  
+	</bean> 
 	
 	
 	<bean id="transactionManager"

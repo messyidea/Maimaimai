@@ -19,6 +19,7 @@ public class Item implements Serializable {
 	
 	private Integer itemcat;
 	
+
 	
 
 	public Integer getItemcat() {
@@ -100,6 +101,8 @@ public class Item implements Serializable {
 	public Item() {
 		super();
 	}
+
+	
 	
 	
 }

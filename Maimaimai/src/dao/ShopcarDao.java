@@ -11,9 +11,12 @@ public interface ShopcarDao {
 	
 	public List<Shopcar> findByName(String name);
 	
-	public void deleteShopcarByName(String name);
+	public void deleteShopcarById(Integer id);
 	
 	public void update(Shopcar shopcar);
 	
 	public Shopcar getShopcarById(String id);
+	
+	public Shopcar getShopcarBy2(String username,String itemid);
+	
 }

@@ -21,33 +21,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<div class="container-fluid">
 	<div class="row-fluid">
-		<div class="span2 accordion-group">
-			<ul class="nav nav-list">
-				<li class="nav-header">
-				</li>
-				<li class="active">
-					<a href="index.action">所有商品</a>
-				</li>
-				<s:iterator value="rootcatlist" var="l1" status="sta">
-					<li class="nav-header">
-					<s:property value="#l1.name" />
-					</li>
-					
-					<s:iterator value="soncatlist[#sta.index]" var="l2">
-						<s:iterator>
-						<li>
-							<a href="<s:url action="Indexshow" ><s:param name="id" value="#l2.id"/></s:url>">
-								<s:property value="#l2.name" />
-							</a>
-						</li>
-						</s:iterator>
-					</s:iterator>
-					
-				</s:iterator>
-				
-			</ul>
+		<div class="span12 text-center">
+			<form class="form-search" action="Itemsearch.action">
+				<input class="input-medium search-query" type="text" name="searchinfo"/> <button type="submit" class="btn">查找</button>
+			</form>
 		</div>
-		<div class="span10 accordion-group">
+		<legend></legend>
+		<div class="span12">
 			<s:iterator value="itemlist" var="l3">
 				<li class="span4">
 					<div class="thumbnail">
@@ -71,8 +51,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				
 			
 		</div>
+		
+			
+	</div>
 
-</div>
+	</div>
 
 	<legend></legend>
     <%@ include file="/common/foot.jsp"%>

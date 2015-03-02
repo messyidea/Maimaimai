@@ -14,6 +14,8 @@ import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
 
+import model.Favorites;
+import model.Iorder;
 import model.Item;
 import model.Shop;
 import model.Shopcar;
@@ -22,11 +24,15 @@ import model.User;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
+import dao.FavoritesDao;
 import dao.ItemDao;
+import dao.OrderDao;
 import dao.ShopDao;
 import dao.ShopcarDao;
 import dao.UserDao;
+import dao.impl.FavoritesDaoImpl;
 import dao.impl.ItemDaoImpl;
+import dao.impl.OrderDaoImpl;
 import dao.impl.ShopDaoImpl;
 import dao.impl.ShopcarDaoImpl;
 import dao.impl.UserDaoImpl;
@@ -48,12 +54,26 @@ public class UserManagerAction extends ActionSupport{
 	private ShopDao shopdao = new ShopDaoImpl();
 	private Shopcar shopcar;
 	private ShopcarDao shopcardao = new ShopcarDaoImpl();
+	private Favorites fav;
+	private FavoritesDao favoritesdao = new FavoritesDaoImpl();
+	List<Favorites> favoriteslist;
 	List<Shopcar> shopcarlist;
 	List<Item> itemlist;
-
+	List<Iorder> orderlist;
+	OrderDao orderdao = new OrderDaoImpl();
+	
+	private Integer id;
 	ItemDao itemdao = new ItemDaoImpl();
 	
 	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	private User user;
 	
 	private File headimg;
@@ -78,6 +98,57 @@ public class UserManagerAction extends ActionSupport{
 		this.haveimg = haveimg;
 	}
 
+	public String showcount() {
+		ActionContext actionContext = ActionContext.getContext();
+		Map session = actionContext.getSession();
+		String username = (String)session.get("username");
+		orderlist = orderdao.findByName(username);
+		session.put("numoforder", orderlist.size());
+		int now = 0;
+		for(Iorder oo:orderlist) {
+			now += oo.getNum();
+		}
+		session.put("numofitem", now);
+		return "success";
+	}
+	
+	public String showcount2() {
+		ActionContext actionContext = ActionContext.getContext();
+		Map session = actionContext.getSession();
+		String shopname = (String)session.get("shopname");
+		orderlist = orderdao.getOrderByShopname(shopname);
+		session.put("numoforder", orderlist.size());
+		int now = 0;
+		for(Iorder oo:orderlist) {
+			now += oo.getNum();
+		}
+		session.put("numofitem", now);
+		return "success";
+	}
+	
+	public String shopcardel() {
+		ActionContext actionContext = ActionContext.getContext();
+		Map session = actionContext.getSession();
+		String username = (String)session.get("username");
+		String idd = id.toString();
+		Shopcar sc = shopcardao.getShopcarBy2(username, idd);
+		//System.out.println("xixihaha");
+		//System.out.println("id == "+sc.getId().toString());
+		shopcardao.deleteShopcarById(sc.getId());
+		return "success";
+	}
+	
+	public String favoritesdel() {
+		ActionContext actionContext = ActionContext.getContext();
+		Map session = actionContext.getSession();
+		String username = (String)session.get("username");
+		String idd = id.toString();
+		Favorites fav = favoritesdao.getShopcarBy2(username, idd);
+		favoritesdao.deleteFavoritesById(fav.getId());
+		//shopcardao.deleteShopcarById(sc.getId());
+		return "success";
+	}
+	
 	public String showUsers() throws Exception {
 		UserDto dto = new UserDto();
 		users = userDao.getAllUser(User.class);
@@ -325,6 +396,27 @@ public class UserManagerAction extends ActionSupport{
 		return "success";
 	}
 	
+	public String favoriteslist() {
+		ActionContext actionContext = ActionContext.getContext();
+		Map session = actionContext.getSession();
+		String isOnline = (String)session.get("Login");
+		//System.out.println("isOnline == "+isOnline);
+		if(isOnline == null || isOnline.equals("")) return "not_login";
+		username = (String)session.get("username");
+		user = userDao.getUserByName(username);
+		if(user == null) return "not found";
+		favoriteslist = favoritesdao.findByName(username);
+		//shopcarlist = shopcardao.findByName(username);
+		itemlist = new ArrayList<Item>();
+		for(Favorites sc: favoriteslist) {
+			Item it = itemdao.getItemById(sc.getItemid().toString());
+			//System.out.println("id == "+it.getId());
+			itemlist.add(it);
+		}
+		//System.out.println("size == "+itemlist.size());
+		return "success";
+	}
+	
 	public String userlogout() throws Exception {
 		ActionContext actionContext = ActionContext.getContext();
 		Map session = actionContext.getSession();
@@ -423,6 +515,46 @@ public class UserManagerAction extends ActionSupport{
 
 	public void setItemdao(ItemDao itemdao) {
 		this.itemdao = itemdao;
+	}
+
+	public Favorites getFav() {
+		return fav;
+	}
+
+	public void setFav(Favorites fav) {
+		this.fav = fav;
+	}
+
+	public FavoritesDao getFavoritesdao() {
+		return favoritesdao;
+	}
+
+	public void setFavoritesdao(FavoritesDao favoritesdao) {
+		this.favoritesdao = favoritesdao;
+	}
+
+	public List<Favorites> getFavoriteslist() {
+		return favoriteslist;
+	}
+
+	public void setFavoriteslist(List<Favorites> favoriteslist) {
+		this.favoriteslist = favoriteslist;
+	}
+
+	public List<Iorder> getOrderlist() {
+		return orderlist;
+	}
+
+	public void setOrderlist(List<Iorder> orderlist) {
+		this.orderlist = orderlist;
+	}
+
+	public OrderDao getOrderdao() {
+		return orderdao;
+	}
+
+	public void setOrderdao(OrderDao orderdao) {
+		this.orderdao = orderdao;
 	}
 	
 	

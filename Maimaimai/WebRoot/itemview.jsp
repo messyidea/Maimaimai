@@ -19,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="container">
 	<div class="row">
 		<div class="span6">
-			<img alt="140x140" src="/Maimaimai/itemimg/<s:property value="item.itemname"/>.jpg" />
+			<img alt="140x140" src="/Maimaimai/itemimg/<s:property value="item.id"/>.jpg" />
 		</div>
 		<div class="span6">
 			商品名：<h5><s:property value="item.itemname" /> <h5>
@@ -29,6 +29,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			所属库存：<h5><s:property value="item.num" /> <h5>
 			<!--  <a class="btn" href="/Maimaimai/itemview2.jsp?id=<s:property value="item.id"/>">下单</a>-->
 			<a class="btn" href="<s:url action="Itemshow2" ><s:param name="id" value="item.id"/></s:url>">下单</a>
+			<a class="btn" href="<s:url action="Shopcaradd" ><s:param name="id" value="item.id"/></s:url>">加入购物车</a>
+			<a class="btn" href="<s:url action="Shopview" ><s:param name="shopname" value="item.shopname"/></s:url>">查看店铺</a>
 		</div>
 	</div>
 	<div class="row">

@@ -35,7 +35,7 @@
 			out.println("<ul class=\"dropdown-menu\">");
 			out.println("<li><a href=\"Orderlist.action\">用户中心</a></li>");
 			out.println("<li><a href=\"Shopcarlist.action\">购物车</a></li>");
-			out.println("<li><a href=\"/Maimaimai/customer/favorite.jsp\">收藏夹</a></li>");
+			out.println("<li><a href=\"Favoriteslist.action\">收藏夹</a></li>");
 			out.println("</ul></li>");
 			out.println("<li><a href=\"userlogout.action\">登出</a></li>");
 		
@@ -52,7 +52,8 @@
 		}
                      			%>
 								<li><a href="Shopcarlist.action">购物车</a></li>
-								<li><a href="/Maimaimai/customer/favorite.jsp">收藏夹</a></li>
+								<li><a href="Favoriteslist.action">收藏夹</a></li>
+								<li><a href="/Maimaimai/search.jsp">搜索商品</a></li>
 								<!-- 
 								<li class="dropdown"><a class="dropdown-toggle"
 									data-toggle="dropdown" href="#">下拉菜单</a>
@@ -67,6 +68,7 @@
 									</ul></li>
 								 -->
 							</ul>
+							
 							<ul class="nav pull-right">
 								<%
 									if(Login != null && Login.equals("3")) {

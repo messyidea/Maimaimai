@@ -24,6 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li><a href="Orderlist2.action">订单管理</a></li>
 					<li><a href="/Maimaimai/seller/additems.jsp">添加物品</a></li>
 					<li class="active"><a href="Itemlist.action">物品管理</a></li>
+					<li><a href="showcount2.action">信息统计</a></li>
 
 				</ul>
 			</div>
@@ -32,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<s:iterator value="itemlist" var="l1">
 				<li class="span4">
 					<div class="thumbnail">
-						<img alt="300x200" src="/Maimaimai/itemimg/<s:property value="#l1.itemname" />.jpg" />
+						<img alt="300x200" src="/Maimaimai/itemimg/<s:property value="#l1.id" />.jpg" />
 						<div class="caption">
 							<h5>商品名：<s:property value="#l1.itemname" /> <h5>
 							商品价格：<h5><s:property value="#l1.price" /> <h5>
@@ -40,7 +41,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							商品评价：<h5><s:property value="#l1.grade" /> <h5>
 							商品库存：<h5><s:property value="#l1.num" /> <h5>
 							<p>
-								<a class="btn btn-primary" href="<s:url action="kucunadd" ><s:param name="id" value="#l1.id"/></s:url>">增加库存</a> 
+								<a class="btn btn-primary" href="<s:url action="setitemid" ><s:param name="id" value="#l1.id"/></s:url>">修改库存</a> 
+								<a class="btn btn-primary" href="<s:url action="Itemdel" ><s:param name="id" value="#l1.id"/></s:url>">删除物品</a>
 							</p>
 						</div>
 					</div>

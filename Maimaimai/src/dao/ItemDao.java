@@ -20,4 +20,6 @@ public interface ItemDao {
 	public Item getItemByName(String name);
 	
 	public Item getItemById(String id);
+	
+	public List<Item> findByNamelike(String name);
 }
