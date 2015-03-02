@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<s:iterator value="itemlist" var="l1">
 				<li class="span4">
 					<div class="thumbnail">
-						<img alt="300x200" src="/Maimaimai/itemimg/<s:property value="#l1.itemname" />.jpg" />
+						<img alt="300x200" src="/Maimaimai/itemimg/<s:property value="#l1.id" />.jpg" />
 						<div class="caption">
 							商品名：<h5><s:property value="#l1.itemname" /> <h5>
 							商品价格：<h5><s:property value="#l1.price" /> <h5>
