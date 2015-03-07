@@ -1,8 +1,9 @@
 My javaweb project.
+---
 
-哭瞎，今天才知道java-web所有页面都应该由控制器转发的。。
-之前一直都在写jsp到jsp的herf。。
-看来要重构了。
+#java web 实现的网上商城（made by ssh）
 
-
-model 一定不能定义为和数据库操作一样的名字
+#display
+![](https://github.com/messyidea/java-web/raw/master/display/1.png)
+![](https://github.com/messyidea/java-web/raw/master/display/2.png)
+![](https://github.com/messyidea/java-web/raw/master/display/15.png)

@@ -193,7 +193,7 @@ public class ItemManagerAction extends ActionSupport{
 		item = itemdao.getItemById(id.toString());
 		itemname = item.getItemname();
 		String idd = id.toString();
-		//System.out.println("itemname == "+itemname);
+		System.out.println("itemname == "+itemname);
 		
 		String realPath = ServletActionContext.getServletContext().getRealPath("/itemimg");
 		File saveFile = new File(new File(realPath),idd + ".jpg");
